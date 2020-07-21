@@ -2,7 +2,6 @@
 const log = console.log
 console.log('SlideStyleGenerator');
 
-
 function SlideStyleGenerator(){
 	this.curr_file = "";
 	this.canvas = "";
@@ -13,6 +12,9 @@ function SlideStyleGenerator(){
 	this.x="";
 	this.y="";
 	this.length="";
+	this.imgData = "";
+	this.pastX=0;
+	this.pastY="";
 }
 
 SlideStyleGenerator.prototype = {
@@ -32,6 +34,9 @@ SlideStyleGenerator.prototype = {
 		}
 		else if(type === "part"){
 			this.part = canvas;
+			//canvas.style = "display: none";
+			canvas.className = "part";
+			this.initMouseEvent(canvas);
 		}
 		
 		return canvas;
@@ -92,28 +97,72 @@ SlideStyleGenerator.prototype = {
 				this.length = length;
 				
 				partContext.rect(partX, partY, length, length);
-				//partContext.stroke();
 				partContext.clip();
 				partContext.drawImage(img, x, y, width, height);
+				partContext.strokeStyle = "#FFFFF";
+				partContext.stroke();
 			};
   			img.src = event.target.result;
 		}
 	},
 
-	createBackground: function(x, y, width, height){
+	createBackground: function(x, y, width, height, data){
 
 		const file = this.curr_file;
 		const reader = new FileReader();
 		reader.readAsDataURL(file);
 
 		const canvasContext = this.canvas.getContext("2d");
+		const partContext = this.part.getContext("2d");
 		reader.onload = (event) =>{
 			const img = new Image();
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
+				const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+				partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+				partContext.putImageData(imgData, 0, this.y);
+				//partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+
 			};
   			img.src = event.target.result;
+		}
+
+	},
+
+	initMouseEvent: function(canvas){
+ 
+		
+
+		canvas.onmousedown = (e) => {
+			const partContext = canvas.getContext("2d");
+			
+			let imgData = partContext.getImageData(this.pastX, this.y, this.length, this.length);
+			log(e.clientX)
+			canvas.onmousemove = (e) => {
+				let x = e.clientX;
+
+				//clear the canvas(I don't know why clearRect() doesn't work here, so I change the height of
+				//the canvas to force it to clear.)
+				canvas.height = canvas.height;
+				
+				if(x + 25 > this.canvasWidth){
+					x = this.canvasWidth - 25;
+				}
+				else if(x - 25 < 0){
+					x = 0 + 25;
+				}
+
+            	partContext.putImageData(imgData, x-25, this.y);
+            	this.pastX = x-25;
+            	imgData = partContext.getImageData(this.pastX, this.y, this.length, this.length);
+			};
+
+			canvas.onmouseup = function(e){
+
+            	canvas.onmousemove = null;
+            	canvas.onmouseup = null;
+        	};
 		}
 
 	}
