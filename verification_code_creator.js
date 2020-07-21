@@ -9,12 +9,12 @@ function SlideStyleGenerator(){
 	this.canvasWidth = "";
 	this.canvasHeight = "";
 	this.imgs = [];
-	this.x="";
-	this.y="";
-	this.length="";
+	this.x = "";
+	this.y = "";
+	this.length ="";
 	this.imgData = "";
-	this.pastX=0;
-	this.pastY="";
+	this.pastX = 0;
+	this.trailY = [];
 }
 
 SlideStyleGenerator.prototype = {
@@ -36,7 +36,7 @@ SlideStyleGenerator.prototype = {
 			this.part = canvas;
 			//canvas.style = "display: none";
 			canvas.className = "part";
-			this.initMouseEvent(canvas);
+			
 		}
 		
 		return canvas;
@@ -71,6 +71,7 @@ SlideStyleGenerator.prototype = {
 	
 		this.makeJigsaw(0, 0, 320, 200, 50);
 		this.createBackground(0, 0, 320, 200);
+		this.initMouseEvent(this.part);
 	},
 
 	getRandomNumber: function(x){
@@ -131,18 +132,18 @@ SlideStyleGenerator.prototype = {
 	},
 
 	initMouseEvent: function(canvas){
- 
-		
 
 		canvas.onmousedown = (e) => {
 			const partContext = canvas.getContext("2d");
 			
 			let imgData = partContext.getImageData(this.pastX, this.y, this.length, this.length);
 			log(e.clientX)
+
 			canvas.onmousemove = (e) => {
 				let x = e.clientX;
-
-				//clear the canvas(I don't know why clearRect() doesn't work here, so I change the height of
+				const y = e.clientY;
+				this.trailY.push(y);
+				//clear the canvas (I don't know why clearRect() doesn't work here, so I change the height of
 				//the canvas to force it to clear.)
 				canvas.height = canvas.height;
 				
@@ -155,18 +156,68 @@ SlideStyleGenerator.prototype = {
 
             	partContext.putImageData(imgData, x-25, this.y);
             	this.pastX = x-25;
+            	//this.verifyResult(this.pastX, canvas);
             	imgData = partContext.getImageData(this.pastX, this.y, this.length, this.length);
+
+
 			};
 
-			canvas.onmouseup = function(e){
-
-            	canvas.onmousemove = null;
+			canvas.onmouseup = (e) => {
+				canvas.onmousemove = null;
             	canvas.onmouseup = null;
-        	};
+				if(Math.abs(e.clientX - 25 - this.x) <= 20){
+
+					const sum = this.trailY.reduce((a, b) => {
+					    return a + b;
+					});
+
+					const average = sum / this.trailY.length;
+
+					const deviations = this.trailY.map((x) => {
+						return (x - average) ^ 2;
+					});
+
+					const sumD = deviations.reduce((a, b) => {
+					    return a + b;
+					});
+
+					const standardDeviation = Math.sqrt(sumD / (this.trailY.length - 1));
+					log(standardDeviation);
+
+					if(standardDeviation !== 0){
+						alert("Success");
+						canvas.onmousemove = null;
+		            	canvas.onmouseup = null;
+						return true;
+					}
+					else{
+						alert("Failed");
+						canvas.onmousemove = null;
+		            	canvas.onmouseup = null;
+						return false;
+					}
+
+				}
+				else{
+					alert("Failed");
+				}
+			};
+
+
 		}
 
-	}
 		
+			// canvas.onmousemove = null;
+   //          canvas.onmouseup = null;
+			// const finalX = e.clientX;
+
+			// this.verifyResult(finalX, canvas);
+            //canvas.onmousemove = null;
+            //canvas.onmouseup = null;
+        
+
+	},
+
 
 };
 
