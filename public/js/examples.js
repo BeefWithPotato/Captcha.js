@@ -2,7 +2,6 @@
 const log = console.log
 
 const uploadedImg = [];
-//createInputBox();
 
 const ex1 = new SlideStyleGenerator();
 ex1.imgs = uploadedImg;
@@ -46,10 +45,10 @@ function saveImages(){
 
 function setDefaultImgs(){
 	const imga = document.querySelector('#imga');
-	//const imgb = document.querySelector('#imgb');
-	//const imgc = document.querySelector('#imgc');
+	const imgb = document.querySelector('#imgb');
+	const imgc = document.querySelector('#imgc');
 
 	defaultImg.push(imga.src);
-	//defaultImg.push(imgb.src);
-	//defaultImg.push(imgc.src);
+	defaultImg.push(imgb.src);
+	defaultImg.push(imgc.src);
 }
