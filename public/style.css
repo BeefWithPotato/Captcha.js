@@ -1,0 +1,32 @@
+.canvas1{
+	display: block;
+	/*position: relative;*/
+}
+
+.part1{
+	position: relative;
+	display: block;
+	top: -200px;
+}
+
+.canvas2{
+	display: block;
+	/*position: relative;*/
+}
+
+.part2{
+	position: relative;
+	display: block;
+	top: -200px;
+}
+
+
+
+.h4{
+	top: -200px;
+	position: relative;
+}
+
+.imgs{
+	display: none;
+}

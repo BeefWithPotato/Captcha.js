@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Verification Code Generator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script defer type="text/javascript" src='js/verification_code_creator.js'></script>
+	<script defer type="text/javascript" src='js/examples.js'></script>
+	
+
+</head>
+<body>
+	<h1>A example page for Verification Code Generator!</h1>
+
+	<span class="imgs">
+		<img id="imga" src="./imgs/a.jpg">
+		<img id="imgb" src="./imgs/b.jpg">
+		<img id="imgc" src="./imgs/c.jpg">
+	</span>
+
+	<div id="by-developer">
+		<h3>
+			Here is an example of slide type verification code with default backgrounds provided by developer.
+		</h3>
+
+	</div>
+
+	<div id="by-user">
+		<h3>
+			Here is an example of slide type verification code with backgrounds provided by users. <br>
+			You can upload a/multiple picture(s) from local to form the background of the verification code.<br>
+			The generator will randomly choose these pictures as background.<br>
+		</h3>
+		<span id="upload">
+			<input class="upload-box" id="img-upload" type="file" accept="image/*" multiple>
+
+			<button type="button" onclick="saveImages()">
+				Upload
+			</button>
+		</span>
+
+	</div>
+</body>
+
