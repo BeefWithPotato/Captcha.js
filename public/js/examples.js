@@ -46,8 +46,8 @@ function saveImages(){
 
 function setDefaultImgs(){
 	const imga = document.querySelector('#imga');
-	const imgb = document.querySelector('#imga');
-	const imgc = document.querySelector('#imga');
+	const imgb = document.querySelector('#imgb');
+	const imgc = document.querySelector('#imgc');
 
 	defaultImg.push(imga.src);
 	defaultImg.push(imgb.src);

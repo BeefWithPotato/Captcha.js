@@ -41,37 +41,6 @@ SlideStyleGenerator.prototype = {
 		
 	},
 
-	// createInputBox: function(){
-	// 	const form = document.createElement("form");
-	// 	form.id = "uploadImage";
-	// 	const input = document.createElement("input");
-	// 	input.className = "slide-input";
-	// 	input.id = "img-upload";
-	// 	input.type = "file";
-	// 	input.accept = "image/*";
-	// 	input.multiple = "multiple";
-	// 	form.append(input);
-
-	// 	const button = document.createElement("button");
-	// 	button.type = "button";
-	// 	button.onclick = this.saveImage.bind(this);
-	// 	button.append(document.createTextNode("Upload"));
-
-	// 	form.append(button);
-	// 	return form;
-	// },
-
-	// saveImage: function(){
-	// 	log("saveImage");
-	// 	const file = document.querySelector("input[type=file]").files[0];
-	// 	this.imgs.push(file);
-	// 	this.curr_file = file;
-	
-	// 	this.makeJigsaw(0, 0, 320, 200, 50);
-	// 	//this.createBackground(0, 0, 320, 200);
-	// 	//this.initMouseEvent(this.part);
-	// },
-
 	getRandomNumber: function(x){
 		return Math.round(Math.random() * x);
 	},
