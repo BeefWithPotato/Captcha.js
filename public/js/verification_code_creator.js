@@ -140,7 +140,7 @@ SlideStyleGenerator.prototype = {
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
-				try(){
+				try{
 					const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
 					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 					partContext.putImageData(imgData, 0, this.y);
