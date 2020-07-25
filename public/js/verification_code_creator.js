@@ -49,13 +49,14 @@ SlideStyleGenerator.prototype = {
 	makeJigsaw: function(x, y, width, height, length, type){
 		
 		log("drawImageOnCanvas");
+		const partContext = this.part.getContext("2d");
+
 		if(type === "file"){
 			const file = this.imgs[this.getRandomNumber(this.imgs.length-1)];
 			this.curr_file = file;
 			const reader = new FileReader();
 			reader.readAsDataURL(file);
-
-			const partContext = this.part.getContext("2d");
+			
 			reader.onload = (event) =>{
 				const img = new Image();
 				img.onload = () => {
@@ -80,11 +81,8 @@ SlideStyleGenerator.prototype = {
 		else if(type === "src"){
 			const src = this.srcs[this.getRandomNumber(this.srcs.length-1)];
 			this.curr_src = src;
-
-			const partContext = this.part.getContext("2d");
 			
 			const img = new Image();
-			
 			img.onload = () => {
 					
 				const partX = this.getRandomNumber(this.canvasWidth / 2) + (this.canvasWidth / 2) - length;
@@ -99,7 +97,7 @@ SlideStyleGenerator.prototype = {
 				partContext.drawImage(img, x, y, width, height);
 				partContext.strokeStyle = "#FFFFF";
 				partContext.stroke();
-				//this.imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+				this.imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
 			};
 	  		img.src = src;
 			
@@ -109,13 +107,15 @@ SlideStyleGenerator.prototype = {
 
 	createBackground: function(x, y, width, height, type){
 
+		const canvasContext = this.canvas.getContext("2d");
+		const partContext = this.part.getContext("2d");
+
 		if(type === "file"){
 			const file = this.curr_file;
 			const reader = new FileReader();
 			reader.readAsDataURL(file);
 
-			const canvasContext = this.canvas.getContext("2d");
-			const partContext = this.part.getContext("2d");
+			
 			reader.onload = (event) =>{
 				const img = new Image();
 				img.onload = () => {
@@ -133,17 +133,23 @@ SlideStyleGenerator.prototype = {
 		}
 		else if(type === "src"){
 
-			const canvasContext = this.canvas.getContext("2d");
-			const partContext = this.part.getContext("2d");
+			//const canvasContext = this.canvas.getContext("2d");
+			//const partContext = this.part.getContext("2d");
 			
 			const img = new Image();
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
-				const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
-				partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-				partContext.putImageData(imgData, 0, this.y);
-				//partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+				try(){
+					const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+					partContext.putImageData(imgData, 0, this.y);
+					//partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+				}
+				catch(e){
+					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+					partContext.putImageData(this.imgData, 0, this.y);
+				}
 
 			};
 	  		img.src = this.curr_src;
