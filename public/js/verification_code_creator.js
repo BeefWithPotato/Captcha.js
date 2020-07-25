@@ -147,8 +147,7 @@ SlideStyleGenerator.prototype = {
 					//partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 				}
 				catch(e){
-					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-					partContext.putImageData(new ImageData(this.imgData, this.length, this.length), 0, this.y);
+					this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "src");
 				}
 
 			};
