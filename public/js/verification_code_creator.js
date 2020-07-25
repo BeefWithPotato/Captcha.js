@@ -13,7 +13,7 @@ function SlideStyleGenerator(){
 	this.trailY = [];
 	this.srcs = [];
 	this.curr_src = "";
-	this.imgData="";
+	//this.imgData="";
 }
 
 SlideStyleGenerator.prototype = {
@@ -84,6 +84,7 @@ SlideStyleGenerator.prototype = {
 			const partContext = this.part.getContext("2d");
 			
 			const img = new Image();
+			img.src = src;
 			img.onload = () => {
 					
 				const partX = this.getRandomNumber(this.canvasWidth / 2) + (this.canvasWidth / 2) - length;
@@ -98,9 +99,9 @@ SlideStyleGenerator.prototype = {
 				partContext.drawImage(img, x, y, width, height);
 				partContext.strokeStyle = "#FFFFF";
 				partContext.stroke();
-				this.imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+				//this.imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
 			};
-	  		img.src = this.curr_src;
+	  		
 			
 			this.createBackground(x, y, width, height, type);
 		}
@@ -136,16 +137,17 @@ SlideStyleGenerator.prototype = {
 			const partContext = this.part.getContext("2d");
 			
 			const img = new Image();
+			img.src = this.curr_src;
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
-				//const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+				const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
 				partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 				partContext.putImageData(this.imgData, 0, this.y);
 				//partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 
 			};
-	  		img.src = this.curr_src;
+	  		
 			
 			this.initMouseEvent(this.part, type);
 		}
