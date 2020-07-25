@@ -5,8 +5,8 @@ const uploadedImg = [];
 const ex1 = new SlideStyleGenerator();
 ex1.imgs = uploadedImg;
 const uploadEx = document.querySelector('#by-user');
-const canvas = ex1.createCanvas(320, 200, "canvas1", "canvas");
-const block = ex1.createCanvas(320, 200, "part1", "part");
+const canvas = ex1.createCanvas(320, 200, "canvas1", "background");
+const block = ex1.createCanvas(320, 200, "part1", "jigsaw");
 uploadEx.append(canvas);
 uploadEx.append(block);
 
@@ -16,8 +16,8 @@ setDefaultImgs();
 const ex2 = new SlideStyleGenerator();
 ex2.srcs = defaultImg;
 const defaultEx = document.querySelector('#by-developer');
-const canvas2 = ex2.createCanvas(320, 200, "canvas2", "canvas");
-const block2 = ex2.createCanvas(320, 200, "part2", "part");
+const canvas2 = ex2.createCanvas(320, 200, "canvas2", "background");
+const block2 = ex2.createCanvas(320, 200, "part2", "jigsaw");
 
 defaultEx.append(canvas2);
 defaultEx.append(block2);

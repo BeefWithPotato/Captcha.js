@@ -28,11 +28,11 @@ SlideStyleGenerator.prototype = {
 		this.canvasHeight = height;
 		canvas.id = name;
 		
-		if(type === "canvas"){
+		if(type === "background"){
 			this.canvas = canvas;
 			canvas.className = name;
 		}
-		else if(type === "part"){
+		else if(type === "jigsaw"){
 			this.part = canvas;
 			//canvas.style = "display: none";
 			canvas.className = name;
