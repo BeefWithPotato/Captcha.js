@@ -13,6 +13,7 @@ function SlideStyleGenerator(){
 	this.trailY = [];
 	this.srcs = [];
 	this.curr_src = "";
+	this.imgData="";
 }
 
 SlideStyleGenerator.prototype = {
@@ -97,6 +98,7 @@ SlideStyleGenerator.prototype = {
 				partContext.drawImage(img, x, y, width, height);
 				partContext.strokeStyle = "#FFFFF";
 				partContext.stroke();
+				this.imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
 			};
 	  		img.src = this.curr_src;
 			
@@ -134,13 +136,12 @@ SlideStyleGenerator.prototype = {
 			const partContext = this.part.getContext("2d");
 			
 			const img = new Image();
-			
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
-				const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+				//const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
 				partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-				partContext.putImageData(imgData, 0, this.y);
+				partContext.putImageData(this.imgData, 0, this.y);
 				//partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 
 			};
