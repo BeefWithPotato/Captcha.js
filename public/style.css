@@ -6,6 +6,7 @@
 	position: relative;
 	display: block;
 	top: -200px;
+	border: 1px solid black;
 }
 
 .canvas2{
@@ -19,7 +20,7 @@
 }
 
 .by-user{
-	top: -200px;
+	top: 200px;
 	display: block;
 	position: relative;
 }
@@ -31,4 +32,9 @@
 
 .imgs{
 	display: none;
+}
+
+.canvasA{
+	position: relative;
+	left: -302px;
 }
