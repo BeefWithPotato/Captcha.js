@@ -273,16 +273,16 @@ SlideStyleGenerator.prototype = {
 					canvas.height = canvas.height;
 							
 					//jigsaw can only move in the canvas
-					if(x + 25 > this.canvasWidth){
-						x = this.canvasWidth - 25;
+					if(x + this.length/2 > this.canvasWidth){
+						x = this.canvasWidth - this.length/2;
 					}
-					else if(x - 25 < 0){
-						x = 0 + 25;
+					else if(x - this.length/2 < 0){
+						x = 0 + this.length/2;
 					}
 					console.log(x)
 					console.log(y)
 					partContext.putImageData(imgData, x - this.length/2, this.y-1);
-			        this.pastX = x-25;
+			        this.pastX = x-this.length/2;
 				}
 			        
 			    else if(this.verticalOrHorizontal === "vertical"){
@@ -306,7 +306,7 @@ SlideStyleGenerator.prototype = {
 					// if(y - 25 - 200 < 0){
 					// 	y = -200;
 					// }
-			        partContext.putImageData(imgData, this.x, y - this.Yerror - 25);
+			        partContext.putImageData(imgData, this.x, y - this.Yerror - this.length/2);
 			    }	
 			}
 			canvas.onmouseup = (e) => {
@@ -314,7 +314,7 @@ SlideStyleGenerator.prototype = {
 			    canvas.onmouseup = null;
 
 				if(this.verticalOrHorizontal === "horizontal"){
-					if(Math.abs(e.clientX - 25 - this.x) <= this.error){
+					if(Math.abs(e.clientX - this.length/2 - this.x) <= this.error){
 						if(this.checkStandardDeviation(this.trailY)){
 							alert("Success!");
 						}
@@ -335,15 +335,15 @@ SlideStyleGenerator.prototype = {
 
 						
 						if(type === "file"){
-							this.makeJigsaw(0, 0, 320, 200, 50, "file");
+							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "file");
 						}
 						else if(type === "src"){
-							this.makeJigsaw(0, 0, 320, 200, 50, "src");
+							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "src");
 						}			
 					}
 				}
 				if(this.verticalOrHorizontal === "vertical"){
-					if(Math.abs(e.clientY - this.Yerror - 25 - this.y) <= this.error){
+					if(Math.abs(e.clientY - this.Yerror - this.length/2 - this.y) <= this.error){
 						if(this.checkStandardDeviation(this.trailX)){
 							alert("Success!");
 						}
@@ -364,10 +364,10 @@ SlideStyleGenerator.prototype = {
 
 						
 						if(type === "file"){
-							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, 50, "file");
+							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "file");
 						}
 						else if(type === "src"){
-							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, 50, "src");
+							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "src");
 						}			
 					}
 				}
