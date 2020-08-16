@@ -16,7 +16,8 @@ function SlideStyleGenerator(){
 	this.srcs = [];
 	this.curr_src = "";
 	this.verticalOrHorizontal = "";
-	this.imgData="";
+	this.imgData = "";
+	this.error = 5;
 }
 
 SlideStyleGenerator.prototype = {
@@ -38,7 +39,6 @@ SlideStyleGenerator.prototype = {
 			this.part = canvas;
 			canvas.className = name;
 		}
-		
 		return canvas;
 		
 	},
@@ -50,6 +50,10 @@ SlideStyleGenerator.prototype = {
 	verticalOrHorizontal: function(){
     	const result = ["vertical", "horizontal"];
 		return result[Math.floor(Math.random() * 2)];
+    },
+
+    setError: function(x){
+    	this.error = x;
     },
 
 	makeJigsaw: function(x, y, width, height, length, type){
@@ -136,7 +140,6 @@ SlideStyleGenerator.prototype = {
 				partContext.drawImage(img, x, y, width, height);
 				partContext.strokeStyle = "#FFFFF";
 				partContext.stroke();
-				this.imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
 			}
 	  		img.src = src;
 			
@@ -154,7 +157,6 @@ SlideStyleGenerator.prototype = {
 			const reader = new FileReader();
 			reader.readAsDataURL(file);
 
-			
 			reader.onload = (event) =>{
 				const img = new Image();
 				img.onload = () => {
@@ -166,6 +168,9 @@ SlideStyleGenerator.prototype = {
 
 					if(this.verticalOrHorizontal === "horizontal"){
 						try{
+							// const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+							// this.imgData = imgData;
+							// partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 							partContext.putImageData(imgData, 0, this.y);
 						}
 						catch(e){
@@ -174,6 +179,9 @@ SlideStyleGenerator.prototype = {
 					}
 					else{
 						try{
+							// const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+							// this.imgData = imgData;
+							// partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 							partContext.putImageData(imgData, this.x, this.canvasHeight - this.length);
 						}
 						catch(e){
@@ -187,38 +195,32 @@ SlideStyleGenerator.prototype = {
 			
 		}
 		else if(type === "src"){
-
-			//const canvasContext = this.canvas.getContext("2d");
-			//const partContext = this.part.getContext("2d");
 			
 			const img = new Image();
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
-				
-				try{
-					const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
-					this.imgData = imgData;
-					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-				}
-				catch(e){
-					this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
-				}
-			
+
 				if(this.verticalOrHorizontal === "horizontal"){
 					try{
+						const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+						this.imgData = imgData;
+						partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 						partContext.putImageData(imgData, 0, this.y);
 					}
 					catch(e){
-						this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
+						this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "src");
 					}
 				}
 				else{
 					try{
+						const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+						this.imgData = imgData;
+						partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 						partContext.putImageData(imgData, this.x, this.canvasHeight - this.length);
 					}
 					catch(e){
-						this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
+						this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "src");
 					}
 				}
 			}
@@ -281,7 +283,7 @@ SlideStyleGenerator.prototype = {
 					}
 					console.log(x)
 					console.log(y)
-					partContext.putImageData(imgData, x-25, this.y-1);
+					partContext.putImageData(imgData, x - this.length/2, this.y-1);
 			        this.pastX = x-25;
 				}
 			        
@@ -306,7 +308,7 @@ SlideStyleGenerator.prototype = {
 					// if(y - 25 - 200 < 0){
 					// 	y = -200;
 					// }
-			        partContext.putImageData(imgData, this.x, y-200);
+			        partContext.putImageData(imgData, this.x, y - this.canvasHeight - this.length/2);
 			    }	
 			}
 			canvas.onmouseup = (e) => {
@@ -314,7 +316,7 @@ SlideStyleGenerator.prototype = {
 			    canvas.onmouseup = null;
 
 				if(this.verticalOrHorizontal === "horizontal"){
-					if(Math.abs(e.clientX - 25 - this.x) <= 5){
+					if(Math.abs(e.clientX - 25 - this.x) <= this.error){
 						if(this.checkStandardDeviation(this.trailY)){
 							alert("Success!");
 						}
@@ -343,7 +345,7 @@ SlideStyleGenerator.prototype = {
 					}
 				}
 				if(this.verticalOrHorizontal === "vertical"){
-					if(Math.abs(e.clientY - 200 - this.y) <= 2){
+					if(Math.abs(e.clientY - 200 -25 - this.y) <= this.error){
 						if(this.checkStandardDeviation(this.trailX)){
 							alert("Success!");
 						}

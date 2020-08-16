@@ -51,6 +51,7 @@ function saveImages(){
 		// const blockContext = block.getContext("2d");
 		// blockContext.clearRect(0,0,320, 200);
 		ex1.pastX = 0;
+		ex1.pastY = 0;
 		ex1.makeJigsaw(0, 0, 320, 200, 50, "file");
 }
 
