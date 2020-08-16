@@ -162,15 +162,12 @@ SlideStyleGenerator.prototype = {
 				img.onload = () => {
 					canvasContext.drawImage(img, x, y, width, height);
 					canvasContext.clearRect(this.x, this.y, this.length, this.length);
-					const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
-					this.imgData = imgData;
-					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 
 					if(this.verticalOrHorizontal === "horizontal"){
 						try{
-							// const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
-							// this.imgData = imgData;
-							// partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+							const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+							this.imgData = imgData;
+							partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 							partContext.putImageData(imgData, 0, this.y);
 						}
 						catch(e){
@@ -179,9 +176,9 @@ SlideStyleGenerator.prototype = {
 					}
 					else{
 						try{
-							// const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
-							// this.imgData = imgData;
-							// partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+							const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+							this.imgData = imgData;
+							partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 							partContext.putImageData(imgData, this.x, this.canvasHeight - this.length);
 						}
 						catch(e){
@@ -308,7 +305,7 @@ SlideStyleGenerator.prototype = {
 					// if(y - 25 - 200 < 0){
 					// 	y = -200;
 					// }
-			        partContext.putImageData(imgData, this.x, y - this.canvasHeight - this.length/2);
+			        partContext.putImageData(imgData, this.x, y - 170 - 25);
 			    }	
 			}
 			canvas.onmouseup = (e) => {
@@ -345,7 +342,7 @@ SlideStyleGenerator.prototype = {
 					}
 				}
 				if(this.verticalOrHorizontal === "vertical"){
-					if(Math.abs(e.clientY - 200 -25 - this.y) <= this.error){
+					if(Math.abs(e.clientY - 170 - 25 - this.y) <= this.error){
 						if(this.checkStandardDeviation(this.trailX)){
 							alert("Success!");
 						}

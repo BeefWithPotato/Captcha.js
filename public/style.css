@@ -3,9 +3,9 @@
 }
 
 .part1{
-	position: relative;
+	position: absolute;
 	display: block;
-	top: -200px;
+	top: 166px;
 	border: 1px solid black;
 }
 
