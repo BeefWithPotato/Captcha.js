@@ -195,9 +195,15 @@ SlideStyleGenerator.prototype = {
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
-				const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
-				this.imgData = imgData;
-				partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+				
+				try{
+					const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+					this.imgData = imgData;
+					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+				}
+				catch(e){
+					this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
+				}
 			
 				if(this.verticalOrHorizontal === "horizontal"){
 					try{
