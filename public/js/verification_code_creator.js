@@ -18,6 +18,7 @@ function SlideStyleGenerator(){
 	this.verticalOrHorizontal = "";
 	this.imgData = "";
 	this.error = 5;
+	this.Yerror = "";
 }
 
 SlideStyleGenerator.prototype = {
@@ -305,7 +306,7 @@ SlideStyleGenerator.prototype = {
 					// if(y - 25 - 200 < 0){
 					// 	y = -200;
 					// }
-			        partContext.putImageData(imgData, this.x, y - 170 - 25);
+			        partContext.putImageData(imgData, this.x, y - this.Yerror - 25);
 			    }	
 			}
 			canvas.onmouseup = (e) => {
@@ -342,7 +343,7 @@ SlideStyleGenerator.prototype = {
 					}
 				}
 				if(this.verticalOrHorizontal === "vertical"){
-					if(Math.abs(e.clientY - 170 - 25 - this.y) <= this.error){
+					if(Math.abs(e.clientY - this.Yerror - 25 - this.y) <= this.error){
 						if(this.checkStandardDeviation(this.trailX)){
 							alert("Success!");
 						}

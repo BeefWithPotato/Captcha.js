@@ -1,27 +1,31 @@
 .canvas1{
+	position: absolute;
 	display: block;
+	border: 1px solid black;
 }
 
 .part1{
 	position: absolute;
 	display: block;
-	top: 166px;
+	
 	border: 1px solid black;
 }
 
 .canvas2{
+	position: absolute;
+	border: 1px solid black;
 	display: block;
 }
 
 .part2{
-	position: relative;
+	position: absolute;
 	display: block;
 	top: -200px;
 	border: 1px solid black;
 }
 
 .by-user{
-	top: -200px;
+	top: 200px;
 	display: block;
 	position: relative;
 }
