@@ -23,7 +23,6 @@ SlideStyleGenerator.prototype = {
 
 	createCanvas: function(width, height, name, type){
 
-
 		const canvas = document.createElement("canvas");
 		canvas.width = width;
 		this.canvasWidth = width;
@@ -71,8 +70,8 @@ SlideStyleGenerator.prototype = {
 				const img = new Image();
 				img.onload = () => {
 					
-					let partX;
-					let partY;
+					let partX = null;
+					let partY = null;
 					if(direction === "horizontal"){
 						this.verticalOrHorizontal = "horizontal";
 						partX = this.getRandomNumber(this.canvasWidth / 2) + (this.canvasWidth / 2) - length;
@@ -110,9 +109,24 @@ SlideStyleGenerator.prototype = {
 			const img = new Image();
 			img.onload = () => {
 					
-				const partX = this.getRandomNumber(this.canvasWidth / 2) + (this.canvasWidth / 2) - length;
-				const partY = this.getRandomNumber(this.canvasHeight / 2) + (this.canvasHeight / 2) - length;
-
+				let partX = null;
+				let partY = null;
+				if(direction === "horizontal"){
+					this.verticalOrHorizontal = "horizontal";
+					partX = this.getRandomNumber(this.canvasWidth / 2) + (this.canvasWidth / 2) - length;
+					partY = this.getRandomNumber(this.canvasHeight / 2) + (this.canvasHeight / 2) - length;
+				}
+				else{
+					this.verticalOrHorizontal = "vertical";
+					partX = this.getRandomNumber(this.canvasWidth) - length;
+					partY = this.getRandomNumber(this.canvasHeight / 2);
+					if(partY + this.length > this.canvasHeight / 2){
+						partY = this.canvasHeight / 2 - this.length;
+					}
+					if(partX < 0){
+						partX = 0;
+					}
+				}
 				this.x = partX;
 				this.y = partY;
 				this.length = length;
@@ -181,16 +195,26 @@ SlideStyleGenerator.prototype = {
 			img.onload = () => {
 				canvasContext.drawImage(img, x, y, width, height);
 				canvasContext.clearRect(this.x, this.y, this.length, this.length);
-				try{
-					const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
-					partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-					partContext.putImageData(imgData, 0, this.y);
-					//partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+				const imgData = partContext.getImageData(this.x, this.y, this.length, this.length);
+				this.imgData = imgData;
+				partContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+			
+				if(this.verticalOrHorizontal === "horizontal"){
+					try{
+						partContext.putImageData(imgData, 0, this.y);
+					}
+					catch(e){
+						this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
+					}
 				}
-				catch(e){
-					this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "src");
+				else{
+					try{
+						partContext.putImageData(imgData, this.x, this.canvasHeight - this.length);
+					}
+					catch(e){
+						this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
+					}
 				}
-
 			}
 	  		img.src = this.curr_src;
 			
@@ -235,7 +259,6 @@ SlideStyleGenerator.prototype = {
 					let x = e.clientX;
 					const y = e.clientY;
 					imgData = this.imgData;
-					//imgData = partContext.getImageData(this.pastX, this.y, this.length, this.length);
 					//records y-axis changes when moving and use the data to verify if user is a machine
 					this.trailY.push(y);
 
@@ -254,27 +277,28 @@ SlideStyleGenerator.prototype = {
 					console.log(y)
 					partContext.putImageData(imgData, x-25, this.y-1);
 			        this.pastX = x-25;
-			        //imgData = partContext.getImageData(this.pastX, this.y, this.length, this.length);
 				}
 			        
 			    else if(this.verticalOrHorizontal === "vertical"){
 			    	const x = e.clientX;
 			    	let y = e.clientY;
 			    	imgData = this.imgData;
-			    	//imgData = partContext.getImageData(this.x, this.canvasHeight-this.length, this.length, this.length);
+
 			        //records y-axis changes when moving and use the data to verify if user is a machine
 					this.trailX.push(x);
 
 					//clear the canvas (I don't know why clearRect() doesn't work here, so I change the height of
 					//the canvas to force it to clear.)
 					canvas.height = canvas.height;
-							
-					// jigsaw can only move in the canvas
-					// if(y - 200 + 25 > this.canvasHeight){
-					// 	y = this.canvasHeight - 25;
+					
+					console.log("y:" + y)
+					//jigsaw can only move in the canvas
+					// if(y - 200 + 25 > 351){
+					// 	y = 351;
 					// }
-					// else if(y - 25 - 200 < 0){
-					// 	y = 0;
+					
+					// if(y - 25 - 200 < 0){
+					// 	y = -200;
 					// }
 			        partContext.putImageData(imgData, this.x, y-200);
 			    }	
@@ -334,10 +358,10 @@ SlideStyleGenerator.prototype = {
 
 						
 						if(type === "file"){
-							this.makeJigsaw(0, 0, 320, 200, 50, "file");
+							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, 50, "file");
 						}
 						else if(type === "src"){
-							this.makeJigsaw(0, 0, 320, 200, 50, "src");
+							this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, 50, "src");
 						}			
 					}
 				}

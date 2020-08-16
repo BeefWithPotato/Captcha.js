@@ -11,19 +11,19 @@ const block = ex1.createCanvas(320, 200, "part1", "jigsaw");
 uploadEx.append(canvas);
 uploadEx.append(block);
 
-//default
-// const defaultImg = [];
-// setDefaultImgs();
-// const ex2 = new SlideStyleGenerator();
-// ex2.srcs = defaultImg;
-// const defaultEx = document.querySelector('#by-developer');
-// const canvas2 = ex2.createCanvas(320, 200, "canvas2", "background");
-// const block2 = ex2.createCanvas(320, 200, "part2", "jigsaw");
-// defaultEx.append(canvas2);
-// defaultEx.append(block2);
-// ex2.makeJigsaw(0, 0, 320, 200, 50, "src");
+// default
+const defaultImg = [];
+setDefaultImgs();
+const ex2 = new SlideStyleGenerator();
+ex2.srcs = defaultImg;
+const defaultEx = document.querySelector('#by-developer');
+const canvas2 = ex2.createCanvas(320, 200, "canvas2", "background");
+const block2 = ex2.createCanvas(320, 200, "part2", "jigsaw");
+defaultEx.append(canvas2);
+defaultEx.append(block2);
+ex2.makeJigsaw(0, 0, 320, 200, 50, "src");
 
-//Text style
+// // Text style
 // const ex3 = new TextEnterGenerator();
 // const textEx = document.querySelector('#text');
 // const canvas = ex3.createCanvas(300, 120, "canvas");
