@@ -1,13 +1,22 @@
+.title{
+	text-align: center;
+}
+
+.by-developer {
+	text-align: center;
+}
+
 .canvas1{
 	position: absolute;
 	display: block;
 	border: 1px solid black;
+	left: 40%;
 }
 
 .part1{
 	position: absolute;
 	display: block;
-	
+	left: 40%;
 	border: 1px solid black;
 }
 
@@ -15,22 +24,20 @@
 	position: absolute;
 	border: 1px solid black;
 	display: block;
+	left: 40%;
 }
 
 .part2{
 	position: absolute;
 	display: block;
 	border: 1px solid black;
+	left: 40%;
 }
 
 .by-user{
+	text-align: center;
 	top: 200px;
 	display: block;
-	position: relative;
-}
-
-.h4{
-	top: -200px;
 	position: relative;
 }
 
@@ -38,7 +45,23 @@
 	display: none;
 }
 
-.canvasA{
+.text{
+	top: 400px;
+	display: block;
 	position: relative;
-	left: -302px;
+	text-align: center;
+}
+
+.canvas3{
+	display: block;
+	position: absolute;
+	left: 41%;
+	border: 1px solid black;
+}
+
+.canvasA{
+	display: block;
+	position: absolute;
+	left: 41%;
+	border: 1px solid black;
 }

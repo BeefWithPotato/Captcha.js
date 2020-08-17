@@ -378,15 +378,6 @@ SlideStyleGenerator.prototype = {
 
 };
 
-function Dot(){
-	this.x = "";
-	this.y = "";
-	this.radius = "";
-	this.color = "";
-	this.speedX = "";
-	this.speedY = "";
-};
-
 window.requestAnimFrame = (function(){
   	return  window.requestAnimationFrame   ||
         window.webkitRequestAnimationFrame ||
@@ -395,6 +386,16 @@ window.requestAnimFrame = (function(){
             window.setTimeout(callback, 1000 / 60);
         };
 })();
+
+function Dot(){
+	this.x = "";
+	this.y = "";
+	this.radius = "";
+	this.color = "";
+	this.speedX = "";
+	this.speedY = "";
+	this.code = "";
+}
 
 function TextEnterGenerator(){
 	this.nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
