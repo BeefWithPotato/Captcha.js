@@ -1,4 +1,22 @@
+body {
+	background-color: #e6ecf0;
+}
+
+.menu{
+	/*position: relative;*/
+}
+
+.menu li{
+	text-align: center;
+	list-style-type: none;
+}
+
+body pre{
+	border-bottom: 1px solid blue;
+}
+
 .title{
+	width: 100%;
 	text-align: center;
 }
 
@@ -6,17 +24,82 @@
 	text-align: center;
 }
 
+.by-developer ul {
+	position: absolute;
+	display: inline-block;
+	float: left;
+
+	top: 460px;
+	left: 42%;
+}
+
+.by-developer ul li{
+	font-family: Aerial;
+	font-weight: 600;
+	font-size: 1.5em;
+	float: left;
+	list-style-type: none;
+	margin-left: 30px;
+}
+
+.ex1-js{
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 30%;
+	top: 290px;
+}
+
+.ex1-html{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 30%;
+	top: 290px;
+}
+
+.ex1-css{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 30%;
+	top: 290px;
+}
+
+a{
+	text-decoration: none;
+	color: #555555;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active{
+	color: red;
+}
+
+.slide-default-reset-button{
+	float: left;
+	position: absolute;
+	left: 42%;
+	top: 440px;
+	width: 320px;
+}
+
 .canvas1{
 	position: absolute;
 	display: block;
 	border: 1px solid black;
-	left: 40%;
+	left: 42%;
 }
 
-.part1{
+.jigsaw1{
 	position: absolute;
 	display: block;
-	left: 40%;
+	left: 42%;
 	border: 1px solid black;
 }
 
@@ -24,21 +107,92 @@
 	position: absolute;
 	border: 1px solid black;
 	display: block;
-	left: 40%;
+	left: 42%;
 }
 
-.part2{
+.jigsaw2{
 	position: absolute;
 	display: block;
 	border: 1px solid black;
-	left: 40%;
+	left: 42%;
 }
 
 .by-user{
-	text-align: center;
-	top: 200px;
+	
+	top: 310px;
 	display: block;
 	position: relative;
+}
+
+.ex2-title{
+	text-align: center;
+}
+
+.by-user ul {
+	position: absolute;
+	display: inline-block;
+	float: left;
+
+	top: 380px;
+	left: 41%;
+}
+
+.by-user ul li{
+	font-family: Aerial;
+	font-weight: 600;
+	font-size: 1.5em;
+	float: left;
+	list-style-type: none;
+	margin-left: 30px;
+	color: #333333;
+}
+
+.ex2-js{
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 30%;
+	top: 330px;
+}
+
+.ex2-html{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 30%;
+	top: 330px;
+}
+
+.ex2-css{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 30%;
+	top: 330px;
+}
+
+.upload-box{
+	position: absolute;
+	top: 300px;
+	left: 42%;
+	width: 320px;
+	border: 1px solid black;
+}
+
+.upload-button{
+	position: absolute;
+	top: 330px;
+	left: 42%;
+	width: 320px;
+}
+
+.slide-customize-reset-button{
+	position: absolute;
+	width: 320px;
+	left: 42%;
+	top: 360px;
 }
 
 .imgs{
@@ -46,13 +200,147 @@
 }
 
 .text{
-	top: 400px;
+	top: 650px;
 	display: block;
 	position: relative;
-	text-align: center;
+	text-align: left;
+	height: 400px;
+}
+
+.text-h3{
+	position: relative;
+	left: 41%;
+	width: 100%;
+}
+
+.text ul {
+	position: absolute;
+	display: inline-block;
+	float: left;
+	top: 320px;
+	left: 42%;
+}
+
+.text ul li{
+	font-family: Aerial;
+	font-weight: 600;
+	font-size: 1.5em;
+	float: left;
+	list-style-type: none;
+	margin-left: 30px;
+	color: #333333;
+}
+
+.ex3-js{
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 320px;
+}
+
+.ex3-html{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 320px;
+}
+
+.ex3-css{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 320px;
 }
 
 .canvas3{
+	display: block;
+	position: absolute;
+	left: 41%;
+	border: 1px solid black;
+}
+
+.text1-input{
+	position: absolute;
+	left: 41%;
+	top: 200px;
+	width: 352px;
+	height: 30px;
+}
+
+.text1-verify-button{
+	position: absolute;
+	left: 41%;
+	top: 240px;
+	width: 360px;
+	height: 30px;
+}
+
+.text1-reset-button{
+	position: absolute;
+	left: 41%;
+	top: 275px;
+	width: 360px;
+	height: 30px;
+}
+
+.text-aniamtion{
+	top: 1000px;
+	display: block;
+	position: relative;
+	height: 400px;
+	text-align: center;
+}
+
+.text-aniamtion ul {
+	position: absolute;
+	display: inline-block;
+	float: left;
+	top: 320px;
+	left: 42%;
+}
+
+.text-aniamtion ul li{
+	font-family: Aerial;
+	font-weight: 600;
+	font-size: 1.5em;
+	float: left;
+	list-style-type: none;
+	margin-left: 30px;
+	color: #333333;
+}
+
+.ex4-js{
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 320px;
+}
+
+.ex4-html{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 320px;
+}
+
+.ex4-css{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 320px;
+}
+
+.canvas4{
 	display: block;
 	position: absolute;
 	left: 41%;
@@ -64,4 +352,138 @@
 	position: absolute;
 	left: 41%;
 	border: 1px solid black;
+}
+
+.text2-input{
+	position: absolute;
+	left: 41%;
+	top: 200px;
+	width: 352px;
+	height: 30px;
+}
+
+.text2-verify-button{
+	position: absolute;
+	left: 41%;
+	top: 240px;
+	width: 360px;
+	height: 30px;
+}
+
+.text2-reset-button{
+	position: absolute;
+	left: 41%;
+	top: 275px;
+	width: 360px;
+	height: 30px;
+}
+
+.text-customize{
+	top: 1330px;
+	display: block;
+	position: relative;
+	text-align: center;
+	height: 400px;
+}
+
+.options{
+	position: absolute;
+	float: left;
+	left: 41%;
+	display: block;
+	width: 360px;
+}
+
+.options select{
+	width: 280px;
+	height: 30px;
+	margin-bottom: 5px;
+}
+
+.options input{
+	width: 270px;
+	height: 30px;
+	margin-bottom: 5px;
+}
+
+.text3-apply-button{
+	width: 280px;
+	height: 30px;
+}
+
+.text3-input{
+	position: absolute;
+	left: 41%;
+	top: 460px;
+	width: 352px;
+	height: 30px;
+}
+
+.text3-verify-button{
+	position: absolute;
+	left: 41%;
+	top: 500px;
+	width: 360px;
+	height: 30px;
+}
+
+.text3-reset-button{
+	position: absolute;
+	left: 41%;
+	top: 535px;
+	width: 360px;
+	height: 30px;
+	margin-bottom: 50px;
+}
+
+.canvas5{
+	display: block;
+	position: absolute;
+	left: 41%;
+	border: 1px solid black;
+	top: 300px;
+}
+
+.text-customize ul {
+	position: absolute;
+	display: inline-block;
+	float: left;
+	top: 570px;
+	left: 42%;
+}
+
+.text-customize ul li{
+	font-family: Aerial;
+	font-weight: 600;
+	font-size: 1.5em;
+	float: left;
+	list-style-type: none;
+	margin-left: 30px;
+	color: #333333;
+}
+
+.ex5-js{
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 570px;
+}
+
+.ex5-html{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 570px;
+}
+
+.ex5-css{
+	display: none;
+	position: relative;
+	text-align: left;
+	width: 45%;
+	left: 31%;
+	top: 570px;
 }
