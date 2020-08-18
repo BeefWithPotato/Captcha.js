@@ -204,7 +204,6 @@ a:active{
 	display: block;
 	position: relative;
 	text-align: left;
-	height: 400px;
 }
 
 .text-h3{
@@ -292,7 +291,6 @@ a:active{
 	top: 1000px;
 	display: block;
 	position: relative;
-	height: 400px;
 	text-align: center;
 }
 
@@ -383,7 +381,6 @@ a:active{
 	display: block;
 	position: relative;
 	text-align: center;
-	height: 400px;
 }
 
 .options{

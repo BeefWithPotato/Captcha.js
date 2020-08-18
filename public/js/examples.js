@@ -61,8 +61,9 @@ function exForDefaultSlide(){
 
 	const defaultImg = [];
 	setDefaultImgs(defaultImg);
-	ex1.srcs = defaultImg;
-	ex1.Yerror = 200;
+	ex1.setSrcs(defaultImg);
+	ex1.setXYError(410, 213);
+	ex1.makeJigsaw(0, 0, 320, 200, 50, "src");
 }
 exForDefaultSlide();
 
@@ -71,7 +72,6 @@ function resetDefault(){
 	const block = document.querySelector('#jigsaw1');
 	canvas.height = canvas.height;
 	block.height = block.height;
-	ex1.pastX = 0;
 	ex1.makeJigsaw(0, 0, 320, 200, 50, "src");
 }
 
@@ -81,8 +81,7 @@ let ex2 = null;
 function exForCustomizeSlide(){
 	ex2 = new SlideStyleGenerator();
 	ex2.imgs = uploadedImg;
-	ex2.Xerror = 392;
-	ex2.Yerror = 390;
+	ex2.setXYError(412, 274);
 	const uploadEx = document.querySelector('#upload');
 	const canvas = ex2.createCanvas(320, 200, "canvas2", "background");
 	const block = ex2.createCanvas(320, 200, "jigsaw2", "jigsaw");
@@ -101,8 +100,6 @@ function uploadImages(){
 	const block = document.querySelector('#jigsaw2');
 	canvas.height = canvas.height;
 	block.height = block.height;
-	ex2.pastX = 0;
-	ex2.pastY = 0;
 	ex2.makeJigsaw(0, 0, 320, 200, 50, "file");
 }
 
@@ -116,8 +113,6 @@ function resetUpload(){
 		const block = document.querySelector('#jigsaw2');
 		canvas.height = canvas.height;
 		block.height = block.height;
-		ex2.pastX = 0;
-		ex2.pastY = 0;
 		ex2.makeJigsaw(0, 0, 320, 200, 50, "file");
 	}
 }
@@ -129,7 +124,6 @@ function normalTextType(){
 	const textEx = document.querySelector('#text-button');
 	const canvas = ex3.createCanvas(360, 150, "canvas3");
 	textEx.append(canvas);
-	//ex3.setBlur(2);
 	ex3.createCode(canvas, 4);
 	ex3.drawRandomLines(canvas, 30);
 	ex3.addDots(30);

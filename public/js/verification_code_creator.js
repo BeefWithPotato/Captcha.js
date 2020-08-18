@@ -19,15 +19,15 @@ window.requestAnimFrame = (function(){
 		this.canvasHeight = "";
 		this.imgs = [];
 		this.length = "";
-		this.pastX = 0;
-		this.pastY = "";
+		// this.pastX = 0;
+		// this.pastY = "";
 		this.trailX = [];
 		this.trailY = [];
 		this.srcs = [];
 		this.curr_src = "";
 		this.verticalOrHorizontal = "";
 		this.imgData = "";
-		this.error = 5;
+		this.resultErrorRange = 5;
 		this.Xerror = "";
 		this.Yerror = "";
 	}
@@ -64,8 +64,17 @@ window.requestAnimFrame = (function(){
 			return result[Math.floor(Math.random() * 2)];
 	    },
 
-	    setError: function(x){
-	    	this.error = x;
+	    setRangeError: function(x){
+	    	this.resultErrorRange = x;
+	    },
+
+	    setXYError: function(x, y){
+	    	this.Xerror = x;
+	    	this.Yerror = y;
+	    },
+
+	    setSrcs: function(list){
+	    	this.srcs = list;	
 	    },
 
 		makeJigsaw: function(x, y, width, height, length, type){
@@ -324,7 +333,7 @@ window.requestAnimFrame = (function(){
 				    canvas.onmouseup = null;
 
 					if(this.verticalOrHorizontal === "horizontal"){
-						if(Math.abs(e.clientX - this.Xerror - this.length/2 - this.x) <= this.error){
+						if(Math.abs(e.clientX - this.Xerror - this.length/2 - this.x) <= this.resultErrorRange){
 							if(this.checkStandardDeviation(this.trailY)){
 								alert("Success!");
 							}
@@ -342,7 +351,6 @@ window.requestAnimFrame = (function(){
 							background.clearRect(0,0,this.canvasWidth, this.canvasHeight);
 							const part = canvas.getContext("2d");
 							part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
-
 							
 							if(type === "file"){
 								this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "file");
@@ -353,7 +361,7 @@ window.requestAnimFrame = (function(){
 						}
 					}
 					if(this.verticalOrHorizontal === "vertical"){
-						if(Math.abs(e.clientY - this.Yerror - this.length/2 - this.y) <= this.error){
+						if(Math.abs(e.clientY - this.Yerror - this.length/2 - this.y) <= this.resultErrorRange){
 							if(this.checkStandardDeviation(this.trailX)){
 								alert("Success!");
 							}
@@ -372,7 +380,6 @@ window.requestAnimFrame = (function(){
 							const part = canvas.getContext("2d");
 							part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
 
-							
 							if(type === "file"){
 								this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "file");
 							}
