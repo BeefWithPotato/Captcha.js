@@ -62,7 +62,6 @@ function exForDefaultSlide(){
 	const defaultImg = [];
 	setDefaultImgs(defaultImg);
 	ex1.setSrcs(defaultImg);
-	ex1.setXYError(410, 213);
 	ex1.makeJigsaw(0, 0, 320, 200, 50, "src");
 }
 exForDefaultSlide();
@@ -81,7 +80,6 @@ let ex2 = null;
 function exForCustomizeSlide(){
 	ex2 = new SlideStyleGenerator();
 	ex2.imgs = uploadedImg;
-	ex2.setXYError(412, 274);
 	const uploadEx = document.querySelector('#upload');
 	const canvas = ex2.createCanvas(320, 200, "canvas2", "background");
 	const block = ex2.createCanvas(320, 200, "jigsaw2", "jigsaw");

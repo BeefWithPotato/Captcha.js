@@ -19,8 +19,6 @@ window.requestAnimFrame = (function(){
 		this.canvasHeight = "";
 		this.imgs = [];
 		this.length = "";
-		// this.pastX = 0;
-		// this.pastY = "";
 		this.trailX = [];
 		this.trailY = [];
 		this.srcs = [];
@@ -28,8 +26,6 @@ window.requestAnimFrame = (function(){
 		this.verticalOrHorizontal = "";
 		this.imgData = "";
 		this.resultErrorRange = 5;
-		this.Xerror = "";
-		this.Yerror = "";
 	}
 
 	SlideStyleGenerator.prototype = {
@@ -66,11 +62,6 @@ window.requestAnimFrame = (function(){
 
 	    setRangeError: function(x){
 	    	this.resultErrorRange = x;
-	    },
-
-	    setXYError: function(x, y){
-	    	this.Xerror = x;
-	    	this.Yerror = y;
 	    },
 
 	    setSrcs: function(list){
@@ -282,8 +273,9 @@ window.requestAnimFrame = (function(){
 				canvas.onmousemove = (e) => {
 					
 					if(this.verticalOrHorizontal === "horizontal"){
-						let x = e.clientX;
-						const y = e.clientY;
+
+						let x = e.clientX - canvas.getBoundingClientRect().left;
+						const y = e.clientY - canvas.getBoundingClientRect().top;
 						imgData = this.imgData;
 						//records y-axis changes when moving and use the data to verify if user is a machine
 						this.trailY.push(y);
@@ -293,20 +285,18 @@ window.requestAnimFrame = (function(){
 						canvas.height = canvas.height;
 								
 						//jigsaw can only move in the canvas
-						// if(x + this.length/2 > this.canvasWidth){
-						// 	x = this.canvasWidth - this.length/2;
-						// }
-						// else if(x - this.length/2 < 0){
-						// 	x = 0 + this.length/2;
-						// }
-						console.log("x:" + x)
-						console.log("y:" + y)
-						partContext.putImageData(imgData, x - this.Xerror - this.length/2, this.y);
+						if(x + this.length/2 > this.canvasWidth){
+							x = this.canvasWidth - this.length/2;
+						}
+						else if(x - this.length/2 < 0){
+							x = 0 + this.length/2;
+						}
+						partContext.putImageData(imgData, x - this.length/2, this.y);
 					}
 				        
 				    else if(this.verticalOrHorizontal === "vertical"){
-				    	const x = e.clientX;
-				    	let y = e.clientY;
+				    	const x = e.clientX - canvas.getBoundingClientRect().left;
+						let y = e.clientY - canvas.getBoundingClientRect().top;
 				    	imgData = this.imgData;
 
 				        //records y-axis changes when moving and use the data to verify if user is a machine
@@ -315,25 +305,26 @@ window.requestAnimFrame = (function(){
 						//clear the canvas (I don't know why clearRect() doesn't work here, so I change the height of
 						//the canvas to force it to clear.)
 						canvas.height = canvas.height;
-						console.log("x:" + x)
-						console.log("y:" + y)
+
 						//jigsaw can only move in the canvas
-						// if(y - 200 + 25 > 351){
-						// 	y = 351;
-						// }
-						
-						// if(y - 25 - 200 < 0){
-						// 	y = -200;
-						// }
-				        partContext.putImageData(imgData, this.x, y - this.Yerror - this.length/2);
+						if(y + this.length/2 > this.canvasHeight){
+							y = this.canvasHeight - this.length/2;
+						}
+						else if(y - this.length/2 < 0){
+							y = 0 + this.length/2;
+						}
+				        partContext.putImageData(imgData, this.x, y - this.length/2);
 				    }	
 				}
 				canvas.onmouseup = (e) => {
 					canvas.onmousemove = null;
 				    canvas.onmouseup = null;
 
+				    const x = e.clientX - canvas.getBoundingClientRect().left;
+					const y = e.clientY - canvas.getBoundingClientRect().top;
+
 					if(this.verticalOrHorizontal === "horizontal"){
-						if(Math.abs(e.clientX - this.Xerror - this.length/2 - this.x) <= this.resultErrorRange){
+						if(Math.abs(x - this.length/2 - this.x) <= this.resultErrorRange){
 							if(this.checkStandardDeviation(this.trailY)){
 								alert("Success!");
 							}
@@ -351,7 +342,7 @@ window.requestAnimFrame = (function(){
 							background.clearRect(0,0,this.canvasWidth, this.canvasHeight);
 							const part = canvas.getContext("2d");
 							part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
-							
+
 							if(type === "file"){
 								this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "file");
 							}
@@ -361,7 +352,7 @@ window.requestAnimFrame = (function(){
 						}
 					}
 					if(this.verticalOrHorizontal === "vertical"){
-						if(Math.abs(e.clientY - this.Yerror - this.length/2 - this.y) <= this.resultErrorRange){
+						if(Math.abs(y - this.length/2 - this.y) <= this.resultErrorRange){
 							if(this.checkStandardDeviation(this.trailX)){
 								alert("Success!");
 							}
