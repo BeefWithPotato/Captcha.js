@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Verification Code Generator</title>
+	<title>VerifyCode.js</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script defer type="text/javascript" src='js/verification_code_creator.js'></script>
@@ -11,52 +11,56 @@
 	<link rel="stylesheet" type="text/css" href="highlight/styles/rainbow.css"/>
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
-<body class="example">
-	
-	<h1 class="title">Verification Code Generator Examples</h1>
-	<ul class="menu">
-		<li>
-			<a>Examples</a>
-		</li>
-		<li>
-			<a>API</a>
-		</li>
-	</ul>
-	
-
-	<span class="imgs">
-		<img id="imga" src="./imgs/a.jpg">
-		<img id="imgb" src="./imgs/b.jpg">
-		<img id="imgc" src="./imgs/c.jpg">
-	</span>
-
-	<div id="by-developer" class="by-developer">
-		<h3 class="ex1-title">
-			Slide type verification code with default backgrounds provided by developer. <br>
-			Please select the jigsaw block on the left and drag it to the correct position of the background.
-		</h3>
-
-		
-		<span id="ex1">
-			<button class="slide-default-reset-button" type="button" onclick="resetDefault()">
-					Reset
-			</button>
-		</span>
-
-		<ul class="ex1-buttons">
+<body>
+	<div class="example">
+		<h1 class="title">VerifyCode.js Examples</h1>
+		<ul class="menu">
 			<li>
-				<a id="ex1-a-js" href="#">JS</a>
+				<a>Examples</a>
 			</li>
 			<li>
-				<a id="ex1-a-html" href="#">HTML</a>
-			</li>
-			<li>
-				<a id="ex1-a-css" href="#">CSS</a>
+				<a href="/problem">API</a>
 			</li>
 		</ul>
 
-		<pre class="ex1-js" id="ex1-js">
-			<code class="javascript" style="font-size:15px;">
+		<span class="imgs">
+			<img id="imga" src="./imgs/a.jpg">
+			<img id="imgb" src="./imgs/b.jpg">
+			<img id="imgc" src="./imgs/c.jpg">
+		</span>
+
+		<div id="by-developer" class="by-developer">
+
+			<h2 class="slide-title">Slide type verification</h2>
+
+			<h3 class="ex1-title">Default backgrounds</h3>
+
+			<p class="ex1-subtitle">
+				Slider will randomly be horizontal or vertical. <br>
+				Please select the jigsaw block and drag it to the correct position.
+			</p>
+
+			
+			<span id="ex1">
+				<button class="slide-default-reset-button" type="button" onclick="resetDefault()">
+						Reset
+				</button>
+			</span>
+
+			<ul class="ex1-buttons">
+				<li>
+					<a id="ex1-a-js" href="#">JS</a>
+				</li>
+				<li>
+					<a id="ex1-a-html" href="#">HTML</a>
+				</li>
+				<li>
+					<a id="ex1-a-css" href="#">CSS</a>
+				</li>
+			</ul>
+
+			<pre class="ex1-js" id="ex1-js">
+				<code class="javascript" style="font-size:15px;">
 	function exForDefaultSlide(){
 		const ex1 = new SlideStyleGenerator();
 		const defaultEx = document.querySelector('#by-developer');
@@ -70,18 +74,18 @@
 		ex1.Yerror = 200;
 	}
 	exForDefaultSlide();
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex1-html" id="ex1-html">
-			<code class="html" style="font-size:15px;">
+			<pre class="ex1-html" id="ex1-html">
+				<code class="html" style="font-size:15px;">
 	&lt;canvas class=&quot;canvas1&quot; id=&quot;canvas1&quot; width=&quot;320&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
 	&lt;canvas class=&quot;jigsaw1&quot; id=&quot;jigsaw1&quot; width=&quot;320&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex1-css" id="ex1-css">
-			<code class="css" style="font-size:15px;">
+			<pre class="ex1-css" id="ex1-css">
+				<code class="css" style="font-size:15px;">
 	.canvas1{
 		position: absolute;
 		display: block;
@@ -95,42 +99,46 @@
 		left: 40%;
 		border: 1px solid black;
 	}
-			</code>
-		</pre>
-	</div>
+				</code>
+			</pre>
+		</div>
 
-	<div id="by-user" class="by-user">
-		<h3 class="ex2-title">
-			An example of Slide Verification with customize backgrounds. <br>
-			Try uploading a/multiple picture(s) from local to form the background of the verification code.<br>
-			The generator will randomly choose these pictures as background.<br>
-		</h3>
-		<span id="upload" class="upload">
-			<input class="upload-box" id="img-upload" type="file" accept="image/*" multiple>
+		<div id="by-user" class="by-user">
+			<h3 class="ex2-title">
+				User customize backgrounds
+			</h3>
 
-			<button class="upload-button" type="button" onclick="uploadImages()">
-				Upload
-			</button>
+			<p class="ex2-subtitle"> 
+				Try uploading a/multiple picture(s) from local <br>
+				Background will be randomly selected among these pictures. <br>
+			</p>
 
-			<button class="slide-customize-reset-button" type="button" onclick="resetUpload()">
-				Reset
-			</button>
-		</span>
+			<span id="upload" class="upload">
+				<input class="upload-box" id="img-upload" type="file" accept="image/*" multiple>
 
-		<ul>
-			<li>
-				<a id="ex2-a-js" href="#">JS</a>
-			</li>
-			<li>
-				<a id="ex2-a-html" href="#">HTML</a>
-			</li>
-			<li>
-				<a id="ex2-a-css" href="#">CSS</a>
-			</li>
-		</ul>
+				<button class="upload-button" type="button" onclick="uploadImages()">
+					Upload
+				</button>
 
-		<pre class="ex2-js" id="ex2-js">
-			<code class="javascript" style="font-size:15px;">
+				<button class="slide-customize-reset-button" type="button" onclick="resetUpload()">
+					Reset
+				</button>
+			</span>
+
+			<ul>
+				<li>
+					<a id="ex2-a-js" href="#">JS</a>
+				</li>
+				<li>
+					<a id="ex2-a-html" href="#">HTML</a>
+				</li>
+				<li>
+					<a id="ex2-a-css" href="#">CSS</a>
+				</li>
+			</ul>
+
+			<pre class="ex2-js" id="ex2-js">
+				<code class="javascript" style="font-size:15px;">
 	const uploadedImg = [];
 	let ex2 = null;
 	function exForCustomizeSlide(){
@@ -150,7 +158,7 @@
 		log("uploadImage");
 		const files = document.querySelector("input[type=file]").files;
 		Array.prototype.forEach.call(files, (file) => {
-			  uploadedImg.push(file);
+			uploadedImg.push(file);
 		});
 		const canvas = document.querySelector('#canvas2');
 		const block = document.querySelector('#jigsaw2');
@@ -160,19 +168,19 @@
 		ex2.pastY = 0;
 		ex2.makeJigsaw(0, 0, 320, 200, 50, "file");
 	}
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex2-html" id="ex2-html">
-			<code class="html" style="font-size:15px;">
+			<pre class="ex2-html" id="ex2-html">
+				<code class="html" style="font-size:15px;">
 	&lt;canvas class=&quot;canvas2&quot; id=&quot;canvas2&quot; width=&quot;320&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
 	&lt;canvas class=&quot;jigsaw2&quot; id=&quot;jigsaw2&quot; width=&quot;320&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
-			</code>
+				</code>
 
-		</pre>
+			</pre>
 
-		<pre class="ex2-css" id="ex2-css">
-			<code class="css" style="font-size:15px;">
+			<pre class="ex2-css" id="ex2-css">
+				<code class="css" style="font-size:15px;">
 	.canvas2{
 		position: absolute;
 		border: 1px solid black;
@@ -186,40 +194,40 @@
 		border: 1px solid black;
 		left: 40%;
 	}
-			</code>
-		</pre>
-	</div>
+				</code>
+			</pre>
+		</div>
 
-	<div id="text" class="text">
-		<h3 class="text-h3">
-			Traditional Text-enter type Verification
-		</h3>
-		<span id="text-button">
+		<div id="text" class="text">
+			<h3 class="ex3-title">
+				Traditional Text Verification
+			</h3>
+			<span id="text-button">
 
-			<input class="text1-input" id='ex3-input' type="text" placeholder="Enter Code Here!">
+				<input class="text1-input" id='ex3-input' type="text" placeholder="Enter Code Here!">
 
-			<button class="text1-verify-button" type="button" onclick="verifyText(1)">
-				Verify
-			</button>
+				<button class="text1-verify-button" type="button" onclick="verifyText(1)">
+					Verify
+				</button>
 
-			<button class="text1-reset-button" type="button" onclick="resetText(1)">
-				Reset
-			</button>
-		</span>
-		<ul>
-			<li>
-				<a id="ex3-a-js" href="#">JS</a>
-			</li>
-			<li>
-				<a id="ex3-a-html" href="#">HTML</a>
-			</li>
-			<li>
-				<a id="ex3-a-css" href="#">CSS</a>
-			</li>
-		</ul>
+				<button class="text1-reset-button" type="button" onclick="resetText(1)">
+					Reset
+				</button>
+			</span>
+			<ul>
+				<li>
+					<a id="ex3-a-js" href="#">JS</a>
+				</li>
+				<li>
+					<a id="ex3-a-html" href="#">HTML</a>
+				</li>
+				<li>
+					<a id="ex3-a-css" href="#">CSS</a>
+				</li>
+			</ul>
 
-		<pre class="ex3-js" id="ex3-js">
-			<code class="javascript" style="font-size:15px;">
+			<pre class="ex3-js" id="ex3-js">
+				<code class="javascript" style="font-size:15px;">
 	function normalTextType(){
 		ex3 = new TextEnterGenerator();
 		const textEx = document.querySelector('#text-button');
@@ -236,57 +244,57 @@
 		ex3.drawRandomDots(canvas);
 	}
 	normalTextType();
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex3-html" id="ex3-html">
-			<code class="html" style="font-size:15px;">
+			<pre class="ex3-html" id="ex3-html">
+				<code class="html" style="font-size:15px;">
 	&lt;canvas class=&quot;canvas3&quot; id=&quot;canvas3&quot; width=&quot;360&quot; height=&quot;150&quot;&gt;&lt;/canvas&gt;
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex3-css" id="ex3-css">
-			<code class="css" style="font-size:15px;">
+			<pre class="ex3-css" id="ex3-css">
+				<code class="css" style="font-size:15px;">
 	.canvas3{
 		display: block;
 		position: absolute;
 		left: 39%;
 		border: 1px solid black;
 	}
-			</code>
-		</pre>
-	</div>
+				</code>
+			</pre>
+		</div>
 
-	<div class="text-aniamtion">
-		<h3 style="position: relative; left: 1%;">
-			Text-enter type Verification With Animation Example 
-		</h3>
-		<span id="text-button-animation">
+		<div class="text-aniamtion">
+			<h3 class="ex4-title">
+				Traditional Text Verification with Animation 
+			</h3>
+			<span id="text-button-animation">
 
-			<input class="text2-input" id='ex4-input' type="text" placeholder="Enter Code Here!">
+				<input class="text2-input" id='ex4-input' type="text" placeholder="Enter Code Here!">
 
-			<button class="text2-verify-button" type="button" onclick="verifyText(2)">
-				Verify
-			</button>
+				<button class="text2-verify-button" type="button" onclick="verifyText(2)">
+					Verify
+				</button>
 
-			<button class="text2-reset-button" type="button" onclick="resetText(2)">
-				Reset
-			</button>
-		</span>
-		<ul>
-			<li>
-				<a id="ex4-a-js" href="#">JS</a>
-			</li>
-			<li>
-				<a id="ex4-a-html" href="#">HTML</a>
-			</li>
-			<li>
-				<a id="ex4-a-css" href="#">CSS</a>
-			</li>
-		</ul>
+				<button class="text2-reset-button" type="button" onclick="resetText(2)">
+					Reset
+				</button>
+			</span>
+			<ul>
+				<li>
+					<a id="ex4-a-js" href="#">JS</a>
+				</li>
+				<li>
+					<a id="ex4-a-html" href="#">HTML</a>
+				</li>
+				<li>
+					<a id="ex4-a-css" href="#">CSS</a>
+				</li>
+			</ul>
 
-		<pre class="ex4-js" id="ex4-js">
-			<code class="javascript" style="font-size:15px;">
+			<pre class="ex4-js" id="ex4-js">
+				<code class="javascript" style="font-size:15px;">
 	let ex4 = null;
 	function textTypeWithAnimation(){
 		ex4 = new TextEnterGenerator();
@@ -302,18 +310,18 @@
 		ex4.drawRandomDotsWithAnimation(canvasA);
 	}
 	textTypeWithAnimation();
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex4-html" id="ex4-html">
-			<code class="html" style="font-size:15px;">
+			<pre class="ex4-html" id="ex4-html">
+				<code class="html" style="font-size:15px;">
 	&lt;canvas class=&quot;canvas4&quot; id=&quot;canvas4&quot; width=&quot;360&quot; height=&quot;150&quot;&gt;&lt;/canvas&gt;
 	&lt;canvas class=&quot;canvasA&quot; id=&quot;canvasA&quot; width=&quot;360&quot; height=&quot;150&quot;&gt;&lt;/canvas&gt;
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex4-css" id="ex4-css">
-			<code class="css" style="font-size:15px;">
+			<pre class="ex4-css" id="ex4-css">
+				<code class="css" style="font-size:15px;">
 	.canvas4{
 		display: block;
 		position: absolute;
@@ -327,63 +335,63 @@
 		left: 39%;
 		border: 1px solid black;
 	}
-			</code>
-		</pre>
-	</div>
+				</code>
+			</pre>
+		</div>
 
-	<div class="text-customize">
-		<h3 style="position: relative; left: 1.5%;">
-			Text-enter type Verification With Customize Options Example 
-		</h3>
-		<span id="text-button-customize">
+		<div class="text-customize">
+			<h3 class="ex5-title">
+				Traditional Text Verification with Customize Options
+			</h3>
+			<span id="text-button-customize">
 
-			<span class="options" id="options">
+				<span class="options" id="options">
 
-				<input class="text3-digits-input" id='ex5-digits' type="text" placeholder="Enter the digits you want to display">
+					<input class="text3-digits-input" id='ex5-digits' type="text" placeholder="Enter the digits you want to display">
 
-				<select id="blur" name="blur" size="1">
-				    <option>-Select a level of fuzziness-</option>
-				    <option value="0">0</option>
-				    <option value="1">1</option>
-				    <option value="2">2</option>
-				</select>
+					<select id="blur" name="blur" size="1">
+					    <option>-Select a level of fuzziness-</option>
+					    <option value="0">0</option>
+					    <option value="1">1</option>
+					    <option value="2">2</option>
+					</select>
 
-			    <input class="text3-dots-input" id='ex5-dots' type="text" placeholder="Enter the number of dots you want to display">
+				    <input class="text3-dots-input" id='ex5-dots' type="text" placeholder="Enter the number of dots you want to display">
 
-				<input class="text3-lines-input" id='ex5-lines' type="text" placeholder="Enter the number of lines you want to display">
+					<input class="text3-lines-input" id='ex5-lines' type="text" placeholder="Enter the number of lines you want to display">
 
-				<input class="text3-angle-input" id='ex5-angle' type="text" placeholder="Enter the angles you want (recommend < 15)">
+					<input class="text3-angle-input" id='ex5-angle' type="text" placeholder="Enter the angles you want (recommend < 15)">
 
-				<button class="text3-apply-button" type="button" onclick="apply()">
-					Apply
+					<button class="text3-apply-button" type="button" onclick="apply()">
+						Apply
+					</button>
+				</span> 
+
+				<input class="text3-input" id='ex5-input' type="text" placeholder="Enter Code Here!">
+
+				<button class="text3-verify-button" type="button" onclick="verifyText(3)">
+					Verify
 				</button>
-			</span> 
 
-			<input class="text3-input" id='ex5-input' type="text" placeholder="Enter Code Here!">
+				<button class="text3-reset-button" type="button" onclick="apply()">
+					Reset
+				</button>
+			</span>
 
-			<button class="text3-verify-button" type="button" onclick="verifyText(3)">
-				Verify
-			</button>
+			<ul>
+				<li>
+					<a id="ex5-a-js" href="#">JS</a>
+				</li>
+				<li>
+					<a id="ex5-a-html" href="#">HTML</a>
+				</li>
+				<li>
+					<a id="ex5-a-css" href="#">CSS</a>
+				</li>
+			</ul>
 
-			<button class="text3-reset-button" type="button" onclick="apply()">
-				Reset
-			</button>
-		</span>
-
-		<ul>
-			<li>
-				<a id="ex5-a-js" href="#">JS</a>
-			</li>
-			<li>
-				<a id="ex5-a-html" href="#">HTML</a>
-			</li>
-			<li>
-				<a id="ex5-a-css" href="#">CSS</a>
-			</li>
-		</ul>
-
-		<pre class="ex5-js" id="ex5-js">
-			<code class="javascript" style="font-size:15px;">
+			<pre class="ex5-js" id="ex5-js">
+				<code class="javascript" style="font-size:15px;">
 	let ex5 = null;
 	function textTypeWithOptions(){
 		ex5 = new TextEnterGenerator();
@@ -429,17 +437,17 @@
 			ex5.drawRandomLines(canvas5, lines);
 		}
 	}
-			</code>
-		</pre>
+				</code>
+			</pre>
 
 		<pre class="ex5-html" id="ex5-html">
-			<code class="html" style="font-size:15px;">
+				<code class="html" style="font-size:15px;">
 	&lt;canvas class=&quot;canvas5&quot; id=&quot;canvas5&quot; width=&quot;360&quot; height=&quot;150&quot;&gt;&lt;/canvas&gt;
-			</code>
-		</pre>
+				</code>
+			</pre>
 
-		<pre class="ex5-css" id="ex5-css">
-			<code class="css" style="font-size:15px;">
+			<pre class="ex5-css" id="ex5-css">
+				<code class="css" style="font-size:15px;">
 	.canvas5{
 		display: block;
 		position: absolute;
@@ -447,10 +455,10 @@
 		border: 1px solid black;
 		top: 300px;
 	}
-			</code>
-		</pre>
+				</code>
+			</pre>
 
+		</div>
 	</div>
-
 </body>
 

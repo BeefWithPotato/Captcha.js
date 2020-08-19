@@ -199,7 +199,12 @@ function verifyText(x){
 		console.log("code:" + code);
 		console.log("answer:" + answer);
 		if(code.toUpperCase() === answer.toUpperCase() || code.toLowerCase() === answer.toLowerCase()){
-			alert("Correct!")
+			if(answer !== "" && code !== ""){
+				alert("Correct!");
+			}
+			else{
+				alert("Please generate a verification code!");
+			}
 		}
 		else{
 			alert("Incorrect! Please Try Again!")
@@ -216,7 +221,12 @@ function verifyText(x){
 		console.log("code:" + code);
 		console.log("answer:" + answer);
 		if(code.toUpperCase() === answer.toUpperCase() || code.toLowerCase() === answer.toLowerCase()){
-			alert("Correct!")
+			if(answer !== "" && code !== ""){
+				alert("Correct!");
+			}
+			else{
+				alert("Please generate a verification code!");
+			}
 		}
 		else{
 			alert("Incorrect! Please Try Again!")
@@ -233,7 +243,12 @@ function verifyText(x){
 		console.log("code:" + code);
 		console.log("answer:" + answer);
 		if(code.toUpperCase() === answer.toUpperCase() || code.toLowerCase() === answer.toLowerCase()){
-			alert("Correct!")
+			if(answer !== "" && code !== ""){
+				alert("Correct!");
+			}
+			else{
+				alert("Please generate a verification code!");
+			}
 		}
 		else{
 			alert("Incorrect! Please Try Again!")

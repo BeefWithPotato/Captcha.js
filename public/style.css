@@ -3,7 +3,9 @@ body {
 }
 
 .menu{
-	/*position: relative;*/
+	position: relative;
+	left: 1%;
+	border-bottom: 1.5px solid grey;
 }
 
 .menu li{
@@ -12,12 +14,43 @@ body {
 }
 
 body pre{
-	border-bottom: 1px solid blue;
+	margin-bottom: 50px;
+	border-bottom: 2px solid #6666FF;
 }
 
 .title{
-	width: 100%;
 	text-align: center;
+	position: relative;
+	left: 3%;
+	font-size: 3em;
+    font-weight: 400;
+}
+
+.slide-title{
+	text-align: center;
+	position: relative;
+	left: 41%;
+	font-size: 2em;
+    font-weight: 400;
+    width: 360px;
+}
+
+.ex1-title{
+	font-size: 1.5em;
+	font-weight: 400;
+    text-align: center;
+	position: relative;
+	left: 41%;
+    width: 360px;
+}
+
+.ex1-subtitle{
+	font-size: 1em;
+    margin-top: -10px;
+    text-align: center;
+	position: relative;
+	left: 36%;
+	width: 520px;
 }
 
 .by-developer {
@@ -28,8 +61,7 @@ body pre{
 	position: absolute;
 	display: inline-block;
 	float: left;
-
-	top: 460px;
+	top: 625px;
 	left: 42%;
 }
 
@@ -47,7 +79,7 @@ body pre{
 	text-align: left;
 	width: 45%;
 	left: 30%;
-	top: 290px;
+	top: 310px;
 }
 
 .ex1-html{
@@ -56,7 +88,7 @@ body pre{
 	text-align: left;
 	width: 45%;
 	left: 30%;
-	top: 290px;
+	top: 310px;
 }
 
 .ex1-css{
@@ -65,7 +97,7 @@ body pre{
 	text-align: left;
 	width: 45%;
 	left: 30%;
-	top: 290px;
+	top: 310px;
 }
 
 a{
@@ -85,8 +117,9 @@ a:active{
 	float: left;
 	position: absolute;
 	left: 42%;
-	top: 440px;
+	top: 590px;
 	width: 320px;
+	height: 30px;
 }
 
 .canvas1{
@@ -94,6 +127,7 @@ a:active{
 	display: block;
 	border: 1px solid black;
 	left: 42%;
+	margin-top: 10px;
 }
 
 .jigsaw1{
@@ -101,6 +135,7 @@ a:active{
 	display: block;
 	left: 42%;
 	border: 1px solid black;
+	margin-top: 10px;
 }
 
 .canvas2{
@@ -118,14 +153,27 @@ a:active{
 }
 
 .by-user{
-	
 	top: 310px;
 	display: block;
 	position: relative;
 }
 
 .ex2-title{
-	text-align: center;
+	font-size: 1.5em;
+	font-weight: 400;
+    text-align: center;
+	position: relative;
+	left: 41%;
+	width: 360px;
+}
+
+.ex2-subtitle{
+	font-size: 1em;
+    margin-top: -10px;
+    text-align: center;
+	position: relative;
+	left: 36%;
+	width: 520px;
 }
 
 .by-user ul {
@@ -133,8 +181,8 @@ a:active{
 	display: inline-block;
 	float: left;
 
-	top: 380px;
-	left: 41%;
+	top: 420px;
+	left: 42%;
 }
 
 .by-user ul li{
@@ -152,7 +200,7 @@ a:active{
 	text-align: left;
 	width: 45%;
 	left: 30%;
-	top: 330px;
+	top: 370px;
 }
 
 .ex2-html{
@@ -161,7 +209,7 @@ a:active{
 	text-align: left;
 	width: 45%;
 	left: 30%;
-	top: 330px;
+	top: 370px;
 }
 
 .ex2-css{
@@ -170,29 +218,32 @@ a:active{
 	text-align: left;
 	width: 45%;
 	left: 30%;
-	top: 330px;
+	top: 370px;
 }
 
 .upload-box{
 	position: absolute;
-	top: 300px;
+	top: 310px;
 	left: 42%;
 	width: 320px;
 	border: 1px solid black;
+	height: 25px;
 }
 
 .upload-button{
 	position: absolute;
-	top: 330px;
+	top: 345px;
 	left: 42%;
 	width: 320px;
+	height: 30px;
 }
 
 .slide-customize-reset-button{
 	position: absolute;
 	width: 320px;
 	left: 42%;
-	top: 360px;
+	top: 380px;
+	height: 30px;
 }
 
 .imgs{
@@ -200,24 +251,27 @@ a:active{
 }
 
 .text{
-	top: 650px;
+	top: 655px;
 	display: block;
 	position: relative;
 	text-align: left;
 }
 
-.text-h3{
+.ex3-title{
+	font-size: 1.5em;
+	font-weight: 400;
+    text-align: center;
 	position: relative;
-	left: 41%;
-	width: 100%;
+	left: 42%;
+	width: 360px;
 }
 
 .text ul {
 	position: absolute;
 	display: inline-block;
 	float: left;
-	top: 320px;
-	left: 42%;
+	top: 330px;
+	left: 43%;
 }
 
 .text ul li{
@@ -235,7 +289,7 @@ a:active{
 	text-align: left;
 	width: 45%;
 	left: 31%;
-	top: 320px;
+	top: 330px;
 }
 
 .ex3-html{
@@ -259,47 +313,56 @@ a:active{
 .canvas3{
 	display: block;
 	position: absolute;
-	left: 41%;
+	left: 42%;
 	border: 1px solid black;
 }
 
 .text1-input{
 	position: absolute;
-	left: 41%;
-	top: 200px;
+	left: 42%;
+	top: 220px;
 	width: 352px;
 	height: 30px;
 }
 
 .text1-verify-button{
 	position: absolute;
-	left: 41%;
-	top: 240px;
+	left: 42%;
+	top: 260px;
 	width: 360px;
 	height: 30px;
 }
 
 .text1-reset-button{
 	position: absolute;
-	left: 41%;
-	top: 275px;
+	left: 42%;
+	top: 295px;
 	width: 360px;
 	height: 30px;
 }
 
 .text-aniamtion{
-	top: 1000px;
+	top: 970px;
 	display: block;
 	position: relative;
 	text-align: center;
+}
+
+.ex4-title{
+	font-size: 1.5em;
+	font-weight: 400;
+    text-align: center;
+	position: relative;
+	left: 37%;
+	width: 520px;
 }
 
 .text-aniamtion ul {
 	position: absolute;
 	display: inline-block;
 	float: left;
-	top: 320px;
-	left: 42%;
+	top: 330px;
+	left: 43%;
 }
 
 .text-aniamtion ul li{
@@ -317,7 +380,7 @@ a:active{
 	text-align: left;
 	width: 45%;
 	left: 31%;
-	top: 320px;
+	top: 325px;
 }
 
 .ex4-html{
@@ -326,7 +389,7 @@ a:active{
 	text-align: left;
 	width: 45%;
 	left: 31%;
-	top: 320px;
+	top: 325px;
 }
 
 .ex4-css{
@@ -335,60 +398,69 @@ a:active{
 	text-align: left;
 	width: 45%;
 	left: 31%;
-	top: 320px;
+	top: 325px;
 }
 
 .canvas4{
 	display: block;
 	position: absolute;
-	left: 41%;
+	left: 42%;
 	border: 1px solid black;
 }
 
 .canvasA{
 	display: block;
 	position: absolute;
-	left: 41%;
+	left: 42%;
 	border: 1px solid black;
 }
 
 .text2-input{
 	position: absolute;
-	left: 41%;
-	top: 200px;
+	left: 42%;
+	top: 220px;
 	width: 352px;
 	height: 30px;
 }
 
 .text2-verify-button{
 	position: absolute;
-	left: 41%;
-	top: 240px;
+	left: 42%;
+	top: 260px;
 	width: 360px;
 	height: 30px;
 }
 
 .text2-reset-button{
 	position: absolute;
-	left: 41%;
-	top: 275px;
+	left: 42%;
+	top: 295px;
 	width: 360px;
 	height: 30px;
 }
 
 .text-customize{
-	top: 1330px;
+	top: 1270px;
 	display: block;
 	position: relative;
 	text-align: center;
 }
 
+.ex5-title{
+	font-size: 1.5em;
+	font-weight: 400;
+    text-align: center;
+	position: relative;
+	left: 33.5%;
+	width: 600px;
+}
+
 .options{
 	position: absolute;
 	float: left;
-	left: 41%;
+	left: 41.5%;
 	display: block;
-	width: 360px;
+	width: 390px;
 }
 
 .options select{
@@ -410,7 +482,7 @@ a:active{
 
 .text3-input{
 	position: absolute;
-	left: 41%;
+	left: 42%;
 	top: 460px;
 	width: 352px;
 	height: 30px;
@@ -418,7 +490,7 @@ a:active{
 
 .text3-verify-button{
 	position: absolute;
-	left: 41%;
+	left: 42%;
 	top: 500px;
 	width: 360px;
 	height: 30px;
@@ -426,7 +498,7 @@ a:active{
 
 .text3-reset-button{
 	position: absolute;
-	left: 41%;
+	left: 42%;
 	top: 535px;
 	width: 360px;
 	height: 30px;
@@ -436,7 +508,7 @@ a:active{
 .canvas5{
 	display: block;
 	position: absolute;
-	left: 41%;
+	left: 42%;
 	border: 1px solid black;
 	top: 300px;
 }
@@ -446,7 +518,7 @@ a:active{
 	display: inline-block;
 	float: left;
 	top: 570px;
-	left: 42%;
+	left: 43%;
 }
 
 .text-customize ul li{

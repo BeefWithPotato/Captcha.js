@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'))
 
 
 app.get('/', (req, res) => {
-	res.send('<h1>Welcome to the first deployed page of Haosheng Zhang!</h1>')
+	res.send('./example.html');
 })
 
 app.get('/examples.html', (req, res) => {
