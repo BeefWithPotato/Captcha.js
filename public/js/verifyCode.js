@@ -354,81 +354,82 @@ window.requestAnimFrame = (function(){
 						//put jigsaw to the new mouse position
 				        partContext.putImageData(imgData, this.x, y - this.length/2);
 				    }	
-				}
-				canvas.onmouseup = (e) => {
-					canvas.onmousemove = null;
-				    canvas.onmouseup = null;
+				
+					canvas.onmouseup = (e) => {
+						canvas.onmousemove = null;
+					    canvas.onmouseup = null;
 
-				    //make sure x, y is the position in canvas not in the whole web page
-				    const x = e.clientX - canvas.getBoundingClientRect().left;
-					const y = e.clientY - canvas.getBoundingClientRect().top;
+					    //make sure x, y is the position in canvas not in the whole web page
+					    const x = e.clientX - canvas.getBoundingClientRect().left;
+						const y = e.clientY - canvas.getBoundingClientRect().top;
 
-					if(this.verticalOrHorizontal === "horizontal"){
-						//check if the jigsaw in the correct position
-						//allow small error
-						if(Math.abs(x - this.length/2 - this.x) <= this.resultErrorRange){
-							if(this.checkStandardDeviation(this.trailY)){
-								alert("Success!");
+						if(this.verticalOrHorizontal === "horizontal"){
+							//check if the jigsaw in the correct position
+							//allow small error
+							if(Math.abs(x - this.length/2 - this.x) <= this.resultErrorRange){
+								if(this.checkStandardDeviation(this.trailY)){
+									alert("Success!");
+								}
+								else{
+									alert("You are a bot!");
+								}
 							}
 							else{
-								alert("You are a bot!");
+								alert("Failed. Please try again!");
+								canvas.onmousemove = null;
+								canvas.onmouseup = null;
+								canvas.onmousedown = null;
+
+								//clear canvas
+								const background = this.canvas.getContext("2d");
+								background.clearRect(0,0,this.canvasWidth, this.canvasHeight);
+								const part = canvas.getContext("2d");
+								part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
+
+								// make jigsaw again using the current setting
+								if(type === "file"){
+									this.makeJigsaw(this.length, "file");
+									this.createBackground("file");
+								}
+								else if(type === "src"){
+									this.makeJigsaw(this.length, "src");
+									this.createBackground("src");
+								}			
 							}
 						}
-						else{
-							alert("Failed. Please try again!");
-							canvas.onmousemove = null;
-							canvas.onmouseup = null;
-							canvas.onmousedown = null;
-
-							//clear canvas
-							const background = this.canvas.getContext("2d");
-							background.clearRect(0,0,this.canvasWidth, this.canvasHeight);
-							const part = canvas.getContext("2d");
-							part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
-
-							// make jigsaw again using the current setting
-							if(type === "file"){
-								this.makeJigsaw(this.length, "file");
-								this.createBackground("file");
-							}
-							else if(type === "src"){
-								this.makeJigsaw(this.length, "src");
-								this.createBackground("src");
-							}			
-						}
-					}
-					if(this.verticalOrHorizontal === "vertical"){
-						//check if the jigsaw in the correct position
-						//allow small error
-						if(Math.abs(y - this.length/2 - this.y) <= this.resultErrorRange){
-							if(this.checkStandardDeviation(this.trailX)){
-								alert("Success!");
+						if(this.verticalOrHorizontal === "vertical"){
+							//check if the jigsaw in the correct position
+							//allow small error
+							if(Math.abs(y - this.length/2 - this.y) <= this.resultErrorRange){
+								if(this.checkStandardDeviation(this.trailX)){
+									alert("Success!");
+								}
+								else{
+									alert("You are a bot!");
+								}
 							}
 							else{
-								alert("You are a bot!");
-							}
-						}
-						else{
-							alert("Failed. Please try again!");
-							canvas.onmousemove = null;
-							canvas.onmouseup = null;
-							canvas.onmousedown = null;
+								alert("Failed. Please try again!");
+								canvas.onmousemove = null;
+								canvas.onmouseup = null;
+								canvas.onmousedown = null;
 
-							//clear canvas
-							const background = this.canvas.getContext("2d");
-							background.clearRect(0,0,this.canvasWidth, this.canvasHeight);
-							const part = canvas.getContext("2d");
-							part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
+								//clear canvas
+								const background = this.canvas.getContext("2d");
+								background.clearRect(0,0,this.canvasWidth, this.canvasHeight);
+								const part = canvas.getContext("2d");
+								part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
 
-							// make jigsaw again using the current setting
-							if(type === "file"){
-								this.makeJigsaw(this.length, "file");
-								this.createBackground("file");
+								// make jigsaw again using the current setting
+								if(type === "file"){
+									this.makeJigsaw(this.length, "file");
+									this.createBackground("file");
+								}
+								else if(type === "src"){
+									this.makeJigsaw(this.length, "src");
+									this.createBackground("src");
+								}			
 							}
-							else if(type === "src"){
-								this.makeJigsaw(this.length, "src");
-								this.createBackground("src");
-							}			
 						}
 					}
 				}

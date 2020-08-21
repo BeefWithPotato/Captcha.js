@@ -8,6 +8,7 @@ body {
 	font-weight: 400;
 	top: 130px;
 	left: 10px;
+	z-index: 99999;
 }
 
 .api-redirect{
@@ -16,6 +17,7 @@ body {
 	right: 10px;
 	font-weight: 400;
 	top: 130px;
+	z-index: 99999;
 }
 
 body pre{
