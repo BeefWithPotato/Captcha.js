@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 	res.send('/api.html');
 })
 
-app.get('/api', (req, res) => {
+app.get('/api.html', (req, res) => {
 	res.send('/api.html');
 })
 
