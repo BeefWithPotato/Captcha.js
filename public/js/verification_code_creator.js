@@ -409,7 +409,6 @@ window.requestAnimFrame = (function(){
 		this.canvasHeight = "";
 		this.dots = [];
 		this.dotSpeed = 2;
-		this.canvasA = "";
 		this.blur = "no";
 		this.code = [];
 		this.lineWidth = 2;
@@ -418,8 +417,8 @@ window.requestAnimFrame = (function(){
 
 	TextEnterGenerator.prototype = {
 
+		//Create canvas with given name as class name and id
 		createCanvas: function(width, height, name){
-
 			const canvas = document.createElement("canvas");
 			canvas.width = width;
 			this.canvasWidth = width;
@@ -437,6 +436,18 @@ window.requestAnimFrame = (function(){
 
 		setAngle: function(angle){
 			this.angle = angle;
+		},
+
+		setDotSpeed: function(x){
+			this.dotSpeed = x;
+		},
+
+		setLineWidth: function(x){
+			this.lineWidth = x;
+		},
+
+		setDotRadius: function(x){
+			this.dotRadius = x;
 		},
 
 		setBlur: function(x){

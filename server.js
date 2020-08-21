@@ -9,13 +9,16 @@ const app = express();
 
 app.use(express.static(__dirname + '/public'))
 
-
 app.get('/', (req, res) => {
-	res.send('./example.html');
+	res.send('/api.html');
+})
+
+app.get('/api', (req, res) => {
+	res.send('/api.html');
 })
 
 app.get('/examples.html', (req, res) => {
-	res.send('/example.html')
+	res.send('/examples.html')
 })
 
 app.get('/problem', (req, res) => {

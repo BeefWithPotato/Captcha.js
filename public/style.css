@@ -556,3 +556,13 @@ a:active{
 	left: 31%;
 	top: 570px;
 }
+
+.footer{
+	position: relative;
+	color: #444444;
+	text-align: center;
+	background-color: #DDDDDD;
+	height: 70px;
+	margin: 10px;
+	top: 530px;
+}

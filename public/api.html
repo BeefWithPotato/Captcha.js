@@ -120,7 +120,8 @@
 							type: <code class="code">"background" / "jigsaw"</code>
 						</td>
 						<td class="methods-description">
-							Create canvas. It will return the canvas DOM element
+							Create canvas with class name and id be the parameter 
+							<code class="code">name</code>. It will return the canvas DOM element
 						</td>
 					</tr>
 
@@ -196,11 +197,327 @@
 							Draw the image in canvas
 						</td>
 					</tr>
+				</table>
+			</div>
+		</div>
 
+		<div class="text-api">
+			<div class="text-api-title">
+				<h2>
+					Traditional Text Verification
+				</h2>
+
+				<h3>
+					Global Variables
+				</h3>
+			</div>
+
+			<div class="text-property-list">
+				<table>
+					<tr>
+						<th>Global Variables</th>
+						<th>Default</th>
+						<th>Type</th>
+						<th>How to set</th>
+						<th>Description</th>
+					</tr>
+
+					<tr>
+						<td>font</td>
+						<td>
+							<code class="code">
+								"bold 40pt serif"
+							</code>
+						</td>
+						<td>String</td>
+						<td>setFont(string)</td>
+						<td class="description">
+							The palce where you can customize your code font in canvas.
+						</td>
+					</tr>
+
+					<tr>
+						<td>angle</td>
+						<td>
+							<code class="code">
+								10
+							</code>
+						</td>
+						<td>Int</td>
+						<td>setAngle(int)</td>
+						<td class="description">
+							You can set code's digits maximum degree of rotation angle. The generator will randomly choose a degree for each digit from 1 to the maximun degree.
+						</td>
+					</tr>
+
+					<tr>
+						<td>dotSpeed</td>
+						<td>
+							<code class="code">
+								2
+							</code>
+						</td>
+						<td>Int</td>
+						<td>setDotSpeed(int)</td>
+						<td class="description">
+							The dot speed here is the maximum. The library will randomly choose each dot's speed from 1 to the maximum when adding.
+						</td>
+					</tr>
+
+					<tr>
+						<td>blur</td>
+						<td>
+							<code class="code">
+								"no"
+							</code>
+						</td>
+						<td>String</td>
+						<td>setBlur(int)</td>
+						<td class="description">
+							The variable will decide how fuzziness of the final verification code will be in canvas.
+						</td>
+					</tr>
+
+					<tr>
+						<td>lineWidth</td>
+						<td>
+							<code class="code">
+								2
+							</code>
+						</td>
+						<td>Int</td>
+						<td>setLineWidth(int)</td>
+						<td class="description">
+							Set the width of lines in the verification code.
+						</td>
+					</tr>
+
+					<tr>
+						<td>dotRadius</td>
+						<td>
+							<code class="code">
+								3
+							</code>
+						</td>
+						<td>Int</td>
+						<td>setDotRadius(int)</td>
+						<td class="description">
+							Set the radius of dots in the verification code.
+						</td>
+					</tr>
 				</table>
 			</div>
 
+			<div class="text-methods-title">
+				<h3>
+					Methods
+				</h3>
+			</div>
+
+			<div class="text-method-list">
+				<table>
+					<tr>
+						<th>Methods</th>
+						<th>Parameters</th>
+						<th>Description</th>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							createCanvas(width, height, name)
+						</td>
+						<td class="parameters">
+							width: Int<br>
+							height: Int<br>
+							name: String<br>
+						</td>
+						<td class="methods-description">
+							Create canvas with class name and id be the provided parameter 
+							<code class="code">name</code>. It will return the canvas DOM element.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setFont(font)
+						</td>
+						<td class="parameters">
+							font: String
+						</td>
+						<td class="methods-description">
+							Allow you to set your own font in canvas.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setAngle(angle)
+						</td>
+						<td class="parameters">
+							angle: Int<br>
+						</td>
+						<td class="methods-description">
+							 Set maximum degree of code rotation angle. We recommend the angle <= 15 degrees. Otherwise the digits may be out of canvas margin. Note: deciding the angle should based on dimension of canvas.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setDotSpeed(speed)
+						</td>
+						<td class="parameters">
+							speed: Int<br>
+						</td>
+						<td class="methods-description">
+							 Set dots' maximum speed.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setDotRadius(radius)
+						</td>
+						<td class="parameters">
+							radius: Int<br>
+						</td>
+						<td class="methods-description">
+							 Set dots' radius.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setLineWidth(width)
+						</td>
+						<td class="parameters">
+							width: Int<br>
+						</td>
+						<td class="methods-description">
+							 Set lines' width.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setBlur(level)
+						</td>
+						<td class="parameters">
+							level: Int<br>
+						</td>
+						<td class="methods-description">
+							 Set level of fuzziness in canvas. We recommend the fuzziness value don't exceed 3 since the level 3 is already very difficult to recognize.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							getCode()
+						</td>
+						<td class="parameters">
+							/
+						</td>
+						<td class="methods-description">
+							It will return the current correct code of the verification. You can use the result to verify the user's input. 
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							createCode(canvas, digits)
+						</td>
+						<td class="parameters">
+							canvas: canvas DOM element <br>
+							digits: Int
+						</td>
+						<td class="methods-description">
+							Generate the code of verification in the canvas. Each digit will randomly be a number, letter (uppercase or lowercase), random color and whether fill or stroke. 
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							getCode()
+						</td>
+						<td class="parameters">
+							/
+						</td>
+						<td class="methods-description">
+							It will return the current correct code of the verification. You can use the result to verify the user's input. 
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							addDots(number)
+						</td>
+						<td class="parameters">
+							number: Int
+						</td>
+						<td class="methods-description">
+							Add the number of dots you want to display in the verification.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							clearDots()
+						</td>
+						<td class="parameters">
+							/
+						</td>
+						<td class="methods-description">
+							Clear all the dots in the generator. You may want to use this when reset the verification.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							drawRandomLines(canvas, number)
+						</td>
+						<td class="parameters">
+							canvas: canvas DOM element <br>
+							number: Int
+						</td>
+						<td class="methods-description">
+							Add the number of lines you want to display in the verification. The lines' position and length are randomly selected by generator.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							drawRandomDots(canvas)
+						</td>
+						<td class="parameters">
+							canvas: canvas DOM element
+						</td>
+						<td class="methods-description">
+							Draw the dots you previously added to the generator. The dots' position, color whether fill or stroke will randomly set by generator.
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							drawRandomDotsWithAnimation(canvas)
+						</td>
+						<td class="parameters">
+							canvas: a new canvas DOM element specific to creating animation
+						</td>
+						<td class="methods-description">
+							Make the aniamtion of dots movement. The method will need a seperate canvas DOM element exclusive for the animation. The new canvas need to be coincide with the code canvas(like a mask above the code canvas). The dots' position, color whether fill or stroke will randomly set by generator.
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
+
+		<div class="footer">
+			<p>
+				VerifyCode.js V1.0.0, created by Haosheng Zhang. <br>
+				U of T, CSC309 license. <br>
+				All rights reserved.
+			</p>
+		</div>
+
 	</div>
 <body>
 

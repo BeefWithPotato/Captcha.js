@@ -61,18 +61,47 @@ td, th {
 }
 
 .methods-name{
-	/*text-align: left;*/ 
 	width: 355px;
 }
 
 .parameters{
-	/*text-align: left; */
 	width: 330px;
 }
 .methods-description{
 	width: 630px;
 	height: 100px;
-	/*text-align: left;*/
+}
+
+.text-api-title{
+    text-align: center;
+}
+
+.text-api-title h2{
+    font-weight: 400;
+}
+
+.text-property-list{
+	margin-top: 30px;
+	position: relative;
+	padding-bottom: 30px;
+}
+
+.text-methods-title{
+	text-align: center;
+}
+
+.text-method-list{
+	margin-top: 30px;
+	position: relative;
+	padding-bottom: 30px;
+}
+
+.footer{
+	color: white;
+	text-align: center;
+	background-color: #444444;
+	height: 70px;
+	margin: 10px;
 }
 
 .code{

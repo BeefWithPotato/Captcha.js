@@ -72,6 +72,7 @@ function resetDefault(){
 	const block = document.querySelector('#jigsaw1');
 	canvas.height = canvas.height;
 	block.height = block.height;
+	ex1.setDirection("");
 	ex1.makeJigsaw(50, "src");
 	ex1.createBackground("src");
 }
