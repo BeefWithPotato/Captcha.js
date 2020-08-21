@@ -190,7 +190,7 @@ window.requestAnimFrame = (function(){
 								partContext.putImageData(imgData, 0, this.y);
 							}
 							catch(e){
-								this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
+								this.createBackground("file");
 							}
 						}
 						else{
@@ -201,7 +201,7 @@ window.requestAnimFrame = (function(){
 								partContext.putImageData(imgData, this.x, this.canvasHeight - this.length);
 							}
 							catch(e){
-								this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "file");
+								this.createBackground("file");
 							}
 						}
 					}
@@ -225,7 +225,7 @@ window.requestAnimFrame = (function(){
 							partContext.putImageData(imgData, 0, this.y);
 						}
 						catch(e){
-							this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "src");
+							this.createBackground("src");
 						}
 					}
 					else{
@@ -236,7 +236,7 @@ window.requestAnimFrame = (function(){
 							partContext.putImageData(imgData, this.x, this.canvasHeight - this.length);
 						}
 						catch(e){
-							this.createBackground(this.x, this.y, this.canvasWidth, this.canvasHeight, "src");
+							this.createBackground("src");
 						}
 					}
 				}
@@ -350,10 +350,12 @@ window.requestAnimFrame = (function(){
 							part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
 
 							if(type === "file"){
-								this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "file");
+								this.makeJigsaw(this.length, "file");
+								this.createBackground("file");
 							}
 							else if(type === "src"){
-								this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "src");
+								this.makeJigsaw(this.length, "src");
+								this.createBackground("src");
 							}			
 						}
 					}
@@ -378,10 +380,12 @@ window.requestAnimFrame = (function(){
 							part.clearRect(0,0,this.canvasWidth, this.canvasHeight);
 
 							if(type === "file"){
-								this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "file");
+								this.makeJigsaw(this.length, "file");
+								this.createBackground("file");
 							}
 							else if(type === "src"){
-								this.makeJigsaw(0, 0, this.canvasWidth, this.canvasHeight, this.length, "src");
+								this.makeJigsaw(this.length, "src");
+								this.createBackground("src");
 							}			
 						}
 					}

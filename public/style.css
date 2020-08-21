@@ -68,7 +68,7 @@ body pre{
 	position: absolute;
 	display: inline-block;
 	float: left;
-	top: 625px;
+	top: 580px;
 	left: 42%;
 }
 
@@ -125,7 +125,7 @@ a:active{
 	float: left;
 	position: absolute;
 	left: 42%;
-	top: 590px;
+	top: 540px;
 	width: 320px;
 	height: 30px;
 }
