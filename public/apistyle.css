@@ -5,11 +5,42 @@ body {
 .api-title{
 	display: relative;
     text-align: center; 
+    border-bottom: 1px solid grey;
 }
 
 .title-name{
 	font-size: 2em;
     font-weight: 400;
+}
+
+.home-redirect{
+	float: left;
+	position: fixed;
+	font-weight: 400;
+	top: 150px;
+	left: 10px;
+}
+
+.example-redirect{
+	position: fixed;
+	float: right;
+	right: 10px;
+	font-weight: 400;
+	top: 150px;
+}
+
+a{
+	text-decoration: none;
+	color: #555555;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #6666FF;
+}
+
+a:active{
+	color: red;
 }
 
 .api-version{
