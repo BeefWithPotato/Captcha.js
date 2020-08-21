@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="highlight/styles/rainbow.css"/>
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
+<body>
 	<div class="api-page">
 		<div class="api-title">
 			<h1 class="title-name">
@@ -16,8 +17,46 @@
 			<p class="api-version">V1.0.0</p>
 		</div>
 
-		<a class="home-redirect" href="/"><<< Back to Home page</a>
-		<a class="example-redirect" href="/examples.html">Go to Example page >>></a>
+		<a class="home-redirect" href="/"> <strong><<< Back to Home page</strong></a>
+		<a class="example-redirect" href="/examples.html"><strong>Go to Example page >>></strong></a>
+
+		<div class="getting-started">
+			<h2>
+				Getting Started with our library
+			</h2>
+
+			<p>
+				<strong>VerifyCode.js</strong> is a verifdication code generate library based on HTML Canvas which will help you alleviate the stress in creating verification code. <br>
+				It provides two types of verification, slider and text. Each type has plenty of customizable options to help creating a unique verification experience for future users.
+			</p>
+
+			<p>
+				In order to use our library, please get the latest version of the library in the Home page.<br>
+				The following instruction will get you all set for using the library: <br>
+				<pre>
+					<code>
+	//git clone our library
+	git clone https:/github.com/csc309-summer-2020/js-library-zhan4415.git
+					</code>
+					<code class="html">
+	//put following html in to your html file &lt;head&gt; section
+	&lt;script defer type=&quot;text/javascript&quot; src=&quot;js/verification_code_creator.js&quot;&gt;&lt;/script&gt;
+					</code>
+				</pre>
+			<p>
+				Since the library will based on HTML Canvas, it is up to you decide its style. You can always use the following method to create a canvas DOM element:
+			</p>
+				<pre>
+					<code class="javascript">
+	createCanvas()
+					</code>
+				</pre>
+			</p>
+			<p>
+				Please refer to the detail method description in the following sections to learn how to use this method. <br>
+				The example for setting the generator instances can also be found there.
+			</p>
+		<div>
 
 		<div class="slide-api">
 			<div class="slide-api-title">
@@ -203,6 +242,37 @@
 				</table>
 			</div>
 		</div>
+
+		<div class="code-for-slider">
+			<h2>
+				Complete configuration to create slider-type verification
+			</h2>
+
+			<pre>
+					<code class="javascript">
+	const slide = new SlideStyleGenerator();
+	const defaultEx = document.querySelector('#ex1');
+	const canvas = slide.createCanvas(320, 200, "canvas", "background");
+	const block = slide.createCanvas(320, 200, "jigsaw", "jigsaw");
+	defaultEx.append(canvas);
+	defaultEx.append(block);
+	setResultError(5)
+	//set slider direction
+	//parameters: "vertical" / "horizontal" / ""
+	slide.setDirection("");
+	//for default images
+	slide.setSrcs(defaultImgs);
+	slide.makeJigsaw(50, "src");
+	slide.createBackground("src");
+	//for user-customize images
+	slide.setImgs(uploadImgs);
+	slide.makeJigsaw(50, "file");
+	slide.createBackground("file");
+	
+					</code>
+			</pre>
+		</div>
+
 
 		<div class="text-api">
 			<div class="text-api-title">
@@ -513,8 +583,37 @@
 			</div>
 		</div>
 
+		<div class="code-for-text">
+			<h2>
+				Complete configuration to create text-type verification
+			</h2>
+
+			<pre>
+					<code class="javascript">
+	const textType = new TextEnterGenerator();
+	const textEx = document.querySelector('#text-button-customize');
+	const canvas5 = textType.createCanvas(360, 150, "canvas");
+	const canvasAnimation = textType.createCanvas(360, 150, "canvasAnimation");
+	textEx.append(canvas);
+	textEx.append(canvasAnimation);
+	textEx("bold 42pt Aerial serif")
+	textType.setBlur(1);
+	textType.setAngle(10);
+	textType.createCode(canvas5, 4);
+	textType.setLineWidth(1)
+	textType.drawRandomLines(canvas5, 20);
+	textType.setDotSpeed(3)
+	textType.addDots(20);
+	//without animation
+	textType.drawRandomDots(canvas5);
+	//with animation
+	textType.drawRandomDotsWithAnimation(canvasAnimation);
+					</code>
+			</pre>
+		</div>
+
 		<div class="footer">
-			<p>
+			<p style="text-align: center;">
 				VerifyCode.js V1.0.0, created by Haosheng Zhang. <br>
 				U of T, CSC309 license. <br>
 				All rights reserved.
@@ -522,7 +621,7 @@
 		</div>
 
 	</div>
-<body>
+
 
 
 </body>

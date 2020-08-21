@@ -9,7 +9,7 @@ body {
 }
 
 .title-name{
-	font-size: 2em;
+	font-size: 3em;
     font-weight: 400;
 }
 
@@ -47,6 +47,31 @@ a:active{
 
 .api-version{
 	font-size: 1.5em;
+}
+
+.getting-started p{
+	font-size: 1.25em;
+	font-weight: 400;
+	margin: auto;
+	text-align: left;
+	position: relative;
+	width: 1200px;
+	margin-bottom: 10px;
+	left: 2%;
+}
+
+.getting-started pre{
+	font-size: 1.25em;
+	font-weight: 400;
+	width: 1100px;
+	margin: auto;
+	text-align: left;
+	position: relative;
+}
+
+.getting-started h2{
+	text-align: center;
+	font-weight: 500;
 }
 
 .slide-api-title{
@@ -129,17 +154,40 @@ td, th {
 	padding-bottom: 30px;
 }
 
-.footer{
-	color: white;
-	text-align: center;
-	background-color: #444444;
-	height: 70px;
-	margin: 10px;
-}
-
 .code{
     background-color: #CCCCCC;
     padding: 2px 5px;
     font-size: 15px;
     font-weight: bold;
+}
+
+.code-for-slider pre{
+	font-size: 1.25em;
+	font-weight: 400;
+	width: 1100px;
+	margin: auto;
+	text-align: left;
+	position: relative;
+}
+
+.code-for-text pre{
+	font-size: 1.25em;
+	font-weight: 400;
+	width: 1100px;
+	margin: auto;
+	text-align: left;
+	position: relative;
+}
+
+.footer p{
+	border-top: 1px solid grey;
+	position: relative;
+	bottom: 0;
+	color: black;
+	text-align: center;
+	width: 100%;
+	height: 70px;
+	font-size: 1em;
+	font-weight: 300;
+	padding: 5px;
 }

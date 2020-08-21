@@ -142,7 +142,6 @@ function textTypeWithAnimation(){
 	const text2Ex = document.querySelector('#text-button-animation');
 	const canvas = ex4.createCanvas(360, 150, "canvas4");
 	const canvasA = ex4.createCanvas(360, 150, "canvasA");
-	ex4.canvasA = canvasA;
 	text2Ex.append(canvas);
 	text2Ex.append(canvasA);
 	ex4.createCode(canvas, 4);
@@ -164,6 +163,7 @@ textTypeWithOptions();
 
 function apply(){
 	const canvas5 = document.querySelector('#canvas5');
+	//force canvas to clear
 	canvas5.height = canvas5.height;
 	const digits = document.querySelector('#ex5-digits').value;
 	const level = document.querySelector('#blur').value;

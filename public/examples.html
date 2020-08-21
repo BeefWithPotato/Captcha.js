@@ -13,10 +13,10 @@
 </head>
 <body>
 	<div class="example">
-		<a class="home-redirect" href="/"><<< Back to Home page</a>
-		<a class="api-redirect" href="/api.html">Go to API page >>></a>
+		<a class="home-redirect" href="/"><strong><<< Back to Home page</strong></a>
+		<a class="api-redirect" href="/api.html"><strong>Go to API page >>></strong></a>
 
-		<h1 class="title">VerifyCode.js Examples</h1>
+		<h1 class="title">VerifyCode.js <strong style="color: blue;">Examples</strong></h1>
 
 		<span class="imgs">
 			<img id="imga" src="./imgs/a.jpg">
@@ -56,17 +56,20 @@
 
 			<pre class="ex1-js" id="ex1-js">
 				<code class="javascript" style="font-size:15px;">
+	let ex1 = null;
 	function exForDefaultSlide(){
-		const ex1 = new SlideStyleGenerator();
-		const defaultEx = document.querySelector('#by-developer');
+		ex1 = new SlideStyleGenerator();
+		const defaultEx = document.querySelector('#ex1');
 		const canvas = ex1.createCanvas(320, 200, "canvas1", "background");
 		const block = ex1.createCanvas(320, 200, "jigsaw1", "jigsaw");
 		defaultEx.append(canvas);
 		defaultEx.append(block);
+
 		const defaultImg = [];
 		setDefaultImgs(defaultImg);
-		ex1.srcs = defaultImg;
-		ex1.Yerror = 200;
+		ex1.setSrcs(defaultImg);
+		ex1.makeJigsaw(50, "src");
+		ex1.createBackground("src");
 	}
 	exForDefaultSlide();
 				</code>
@@ -85,14 +88,16 @@
 		position: absolute;
 		display: block;
 		border: 1px solid black;
-		left: 40%;
+		left: 42%;
+		margin-top: 10px;
 	}
 
 	.jigsaw1{
 		position: absolute;
 		display: block;
-		left: 40%;
+		left: 42%;
 		border: 1px solid black;
+		margin-top: 10px;
 	}
 				</code>
 			</pre>
@@ -138,10 +143,8 @@
 	let ex2 = null;
 	function exForCustomizeSlide(){
 		ex2 = new SlideStyleGenerator();
-		ex2.imgs = uploadedImg;
-		ex2.Xerror = 392;
-		ex2.Yerror = 390;
-		const uploadEx = document.querySelector('#by-user');
+		ex2.setImgs(uploadedImg);
+		const uploadEx = document.querySelector('#upload');
 		const canvas = ex2.createCanvas(320, 200, "canvas2", "background");
 		const block = ex2.createCanvas(320, 200, "jigsaw2", "jigsaw");
 		uploadEx.append(canvas);
@@ -153,15 +156,14 @@
 		log("uploadImage");
 		const files = document.querySelector("input[type=file]").files;
 		Array.prototype.forEach.call(files, (file) => {
-			uploadedImg.push(file);
+			  uploadedImg.push(file);
 		});
 		const canvas = document.querySelector('#canvas2');
 		const block = document.querySelector('#jigsaw2');
 		canvas.height = canvas.height;
 		block.height = block.height;
-		ex2.pastX = 0;
-		ex2.pastY = 0;
-		ex2.makeJigsaw(0, 0, 320, 200, 50, "file");
+		ex2.makeJigsaw(50, "file");
+		ex2.createBackground("file");
 	}
 				</code>
 			</pre>
@@ -180,14 +182,14 @@
 		position: absolute;
 		border: 1px solid black;
 		display: block;
-		left: 40%;
+		left: 42%;
 	}
 
 	.jigsaw2{
 		position: absolute;
 		display: block;
 		border: 1px solid black;
-		left: 40%;
+		left: 42%;
 	}
 				</code>
 			</pre>
@@ -223,16 +225,12 @@
 
 			<pre class="ex3-js" id="ex3-js">
 				<code class="javascript" style="font-size:15px;">
+	let ex3 = null;
 	function normalTextType(){
 		ex3 = new TextEnterGenerator();
 		const textEx = document.querySelector('#text-button');
 		const canvas = ex3.createCanvas(360, 150, "canvas3");
-		canvas.id = "canvas3";
-		const canvasA = ex3.createCanvas(360, 150, "canvasA");
-		canvasA.id = "canvasA";
-		ex3.canvasA = canvasA;
 		textEx.append(canvas);
-		textEx.append(canvasA);
 		ex3.createCode(canvas, 4);
 		ex3.drawRandomLines(canvas, 30);
 		ex3.addDots(30);
@@ -253,7 +251,7 @@
 	.canvas3{
 		display: block;
 		position: absolute;
-		left: 39%;
+		left: 42%;
 		border: 1px solid black;
 	}
 				</code>
@@ -296,7 +294,6 @@
 		const text2Ex = document.querySelector('#text-button-animation');
 		const canvas = ex4.createCanvas(360, 150, "canvas4");
 		const canvasA = ex4.createCanvas(360, 150, "canvasA");
-		ex4.canvasA = canvasA;
 		text2Ex.append(canvas);
 		text2Ex.append(canvasA);
 		ex4.createCode(canvas, 4);
@@ -320,14 +317,14 @@
 	.canvas4{
 		display: block;
 		position: absolute;
-		left: 39%;
+		left: 42%;
 		border: 1px solid black;
 	}
 
 	.canvasA{
 		display: block;
 		position: absolute;
-		left: 39%;
+		left: 42%;
 		border: 1px solid black;
 	}
 				</code>
@@ -398,6 +395,7 @@
 
 	function apply(){
 		const canvas5 = document.querySelector('#canvas5');
+		//force canvas to clear
 		canvas5.height = canvas5.height;
 		const digits = document.querySelector('#ex5-digits').value;
 		const level = document.querySelector('#blur').value;
@@ -410,7 +408,6 @@
 		}
 
 		if(angle !== "" && !isNaN(angle)){
-			// default angle is 10 degree
 			ex5.setAngle(angle);
 		}
 
@@ -419,16 +416,11 @@
 		}
 
 		if(dots !== "" && !isNaN(dots)){
-			// use default dot radius and speed here
-			// please see API document for setting radius and speed
 			ex5.addDots(dots);
-			ex5.drawRandomDots(canvas5); 
-
+			ex5.drawRandomDots(canvas5);
 		}
 
 		if(lines !== "" && !isNaN(lines)){
-			// use default line width here
-			// please see API document for setting width
 			ex5.drawRandomLines(canvas5, lines);
 		}
 	}
@@ -446,7 +438,7 @@
 	.canvas5{
 		display: block;
 		position: absolute;
-		left: 39%;
+		left: 42%;
 		border: 1px solid black;
 		top: 300px;
 	}
