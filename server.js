@@ -10,27 +10,11 @@ const app = express();
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
-	res.send('<!DOCTYPE HTML>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>VerifyCode.js</title>
-</head>
-<body style="background-color: #e6ecf0;">
-	<div style="margin-top: 15%; text-align: center; font-size: 100px; font-family: 'Pathway Gothic One', sans-serif;">
-		VerifyCode.js
-	</div>
+	res.send('/home.html');
+})
 
-	<p style="text-align: center;">Design your verification code with characteristics.</p>
-
-	<div class="link">
-		<a href="/examples.html">Exampes</a>
-
-		<a>API</a>
-
-		<a>Download</a>
-	</div>
-</body>');
+app.get('/home.html', (req, res) => {
+	res.send('/home.html');
 })
 
 app.get('/api.html', (req, res) => {
