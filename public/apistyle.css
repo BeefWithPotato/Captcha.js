@@ -1,0 +1,83 @@
+body {
+	background-color: #e6ecf0;
+}
+
+.api-title{
+	display: relative;
+    text-align: center; 
+}
+
+.title-name{
+	font-size: 2em;
+    font-weight: 400;
+}
+
+.api-version{
+	font-size: 1.5em;
+}
+
+.slide-api-title{
+    text-align: center;
+}
+
+.slide-api-title h2{
+    font-weight: 400;
+}
+
+.property-list{
+	margin-top: 30px;
+	position: relative;
+	padding-bottom: 30px;
+}
+
+table, td, th {
+	margin:auto;
+	text-align: center;
+	border-collapse: collapse;
+	border-bottom: 1px solid black;
+	border-color: grey;
+	padding-bottom: 5px;
+}
+
+td, th {
+	min-width: 200px;
+	height: 80px;
+}
+
+.description{
+	text-align: left;
+	width: 500px;
+	height: 100px;
+}
+
+.slide-methods-title{
+	text-align: center;
+}
+
+.method-list{
+	margin-top: 30px;
+	position: relative;
+	padding-bottom: 30px;
+}
+
+.methods-name{
+	/*text-align: left;*/ 
+	width: 355px;
+}
+
+.parameters{
+	/*text-align: left; */
+	width: 330px;
+}
+.methods-description{
+	width: 630px;
+	height: 100px;
+	/*text-align: left;*/
+}
+
+.code{
+    background-color: #CCCCCC;
+    padding: 2px 5px;
+    font-size: 15px;
+    font-weight: bold;
+}

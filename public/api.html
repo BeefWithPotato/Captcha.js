@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>VerifyCode.js</title>
+	<link rel="stylesheet" type="text/css" href="apistyle.css">
+	<script src="highlight/highlight.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="highlight/styles/rainbow.css"/>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+	<div class="api-page">
+		<div class="api-title">
+			<h1 class="title-name">
+				VerifyCode.js <strong style="color: blue;">API</strong>
+			</h1>
+			<p class="api-version">V1.0.0</p>
+		</div>
+
+		<div class="slide-api">
+			<div class="slide-api-title">
+				<h2>
+					Slider-type Verification
+				</h2>
+
+				<h3>
+					Global Variables
+				</h3>
+			</div>
+
+			<div class="property-list">
+				<table>
+					<tr>
+						<th>Global Variables</th>
+						<th>Default</th>
+						<th>Type</th>
+						<th>How to set</th>
+						<th>Description</th>
+					</tr>
+
+					<tr>
+						<td>imgs</td>
+						<td>
+							<code class="code">
+								/
+							</code>
+						</td>
+						<td>Array of Image type file</td>
+						<td>setImgs(list)</td>
+						<td class="description">
+							The list will contain <strong>Image type</strong> files. It will be using as a pool for randomly choosing background of the verification. It is for user-customize backgrounds only. For default backgrounds please refer to the variables <code class="code">srcs</code>
+						</td>
+					</tr>
+
+					<tr>
+						<td>srcs</td>
+						<td>
+							<code class="code">
+								/
+							</code>
+						</td>
+						<td>Array of URLs</td>
+						<td>setSrcs(list)</td>
+						<td class="description">
+							The list will contain <strong>URLs</strong> of the images. It is convenient for setting default background. For user-customize backgrounds please refer to the variables <code class="code">imgs</code>
+						</td>
+					</tr>
+
+					<tr>
+						<td>verticalOrHorizontal</td>
+						<td>
+							<code class="code">
+								/
+							</code>
+						</td>
+						<td>String</td>
+						<td>setDirection(string)</td>
+						<td class="description">
+							This variable will decide whether the slider is vertical or horizontal. The default value is empty, so the slider will randomly decide between the two directions.
+						</td>
+					</tr>
+
+					<tr>
+						<td>resultErrorRange</td>
+						<td>
+							<code class="code">
+								5
+							</code>
+						</td>
+						<td>Int</td>
+						<td>setResultError(int)</td>
+						<td class="description">
+							Let you decide the accuracy of the final jigsaw position.
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="slide-methods-title">
+				<h3>
+					Methods
+				</h3>
+			</div>
+
+			<div class="method-list">
+				<table>
+					<tr>
+						<th>Methods</th>
+						<th>Parameters</th>
+						<th>Description</th>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							createCanvas(width, height, name, type)
+						</td>
+						<td class="parameters">
+							width: Int<br>
+							height: Int<br>
+							name: String<br>
+							type: <code class="code">"background" / "jigsaw"</code>
+						</td>
+						<td class="methods-description">
+							Create canvas. It will return the canvas DOM element
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setDirection(direction)
+						</td>
+						<td class="parameters">
+							direction: <code class="code">"vertical" / "horizontal" / ""</code>
+						</td>
+						<td class="methods-description">
+							Set the slider direction
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setSrcs(list)
+						</td>
+						<td class="parameters">
+							list: Array of image URLs
+						</td>
+						<td class="methods-description">
+							Set the image urls list for default backgrounds' pool
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setImgs(list)
+						</td>
+						<td class="parameters">
+							list: Array of Image type file
+						</td>
+						<td class="methods-description">
+							Set the image files' list for user-customize backgrounds' pool
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							setResultError(error)
+						</td>
+						<td class="parameters">
+							error: Int
+						</td>
+						<td class="methods-description">
+							Set the accuracy when verifying final jigsaw positions' coordinates
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							makeJigsaw(length, type)
+						</td>
+						<td class="parameters">
+							width: Int (Jigsaw's width)<br>
+							type: <code class="code">"file" / "src"</code>
+						</td>
+						<td class="methods-description">
+							Make the jigsaw by using given length in canvas
+						</td>
+					</tr>
+
+					<tr>
+						<td class="methods-name">
+							createBackground(type)
+						</td>
+						<td class="parameters">
+							type: <code class="code">"file" / "src"</code>
+						</td>
+						<td class="methods-description">
+							Draw the image in canvas
+						</td>
+					</tr>
+
+				</table>
+			</div>
+
+		</div>
+	</div>
+<body>
+
+
+</body>
+

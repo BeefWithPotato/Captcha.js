@@ -55,25 +55,35 @@ window.requestAnimFrame = (function(){
 			return Math.round(Math.random() * x);
 		},
 
-		verticalOrHorizontal: function(){
-	    	const result = ["vertical", "horizontal"];
-			return result[Math.floor(Math.random() * 2)];
-	    },
-
-	    setRangeError: function(x){
-	    	this.resultErrorRange = x;
+		setDirection: function(vOrH){
+	    	this.verticalOrHorizontal = vOrH;
 	    },
 
 	    setSrcs: function(list){
 	    	this.srcs = list;	
 	    },
 
-		makeJigsaw: function(x, y, width, height, length, type){
+	    setImgs: function(list){
+	    	this.imgs = list;	
+	    },
+
+	    setResultError: function(x){
+	    	this.resultErrorRange = x;
+	    },
+
+		makeJigsaw: function(length, type){
 			
 			log("drawImageOnCanvas");
-
-			const direction = ["vertical", "horizontal"][Math.floor(Math.random() * 2)];
-			console.log(direction)
+			let direction = null;
+			if(this.verticalOrHorizontal === ""){
+				const num = Math.floor(Math.random() * 2);
+				console.log(num)
+				direction = ["vertical", "horizontal"][num];
+				console.log(direction)
+			}
+			else{
+				direction = this.verticalOrHorizontal;
+			}
 
 			const partContext = this.part.getContext("2d");
 			if(type === "file"){
@@ -110,13 +120,12 @@ window.requestAnimFrame = (function(){
 								
 						partContext.rect(partX, partY, length, length);
 						partContext.clip();
-						partContext.drawImage(img, x, y, width, height);
+						partContext.drawImage(img, 0, 0, this.canvasWidth, this.canvasHeight);
 						partContext.strokeStyle = "#FFFFF";
 						partContext.stroke();
 					}
 		  			img.src = event.target.result;
 				}
-				this.createBackground(x, y, width, height, type);
 			}
 			else if(type === "src"){
 				const src = this.srcs[this.getRandomNumber(this.srcs.length-1)];
@@ -149,17 +158,15 @@ window.requestAnimFrame = (function(){
 						
 					partContext.rect(partX, partY, length, length);
 					partContext.clip();
-					partContext.drawImage(img, x, y, width, height);
+					partContext.drawImage(img, 0, 0, this.canvasWidth, this.canvasHeight);
 					partContext.strokeStyle = "#FFFFF";
 					partContext.stroke();
 				}
 		  		img.src = src;
-				
-				this.createBackground(x, y, width, height, type);
 			}
 		},
 
-		createBackground: function(x, y, width, height, type){
+		createBackground: function(type){
 
 			const canvasContext = this.canvas.getContext("2d");
 			const partContext = this.part.getContext("2d");
@@ -172,7 +179,7 @@ window.requestAnimFrame = (function(){
 				reader.onload = (event) =>{
 					const img = new Image();
 					img.onload = () => {
-						canvasContext.drawImage(img, x, y, width, height);
+						canvasContext.drawImage(img, 0, 0, this.canvasWidth, this.canvasHeight);
 						canvasContext.clearRect(this.x, this.y, this.length, this.length);
 
 						if(this.verticalOrHorizontal === "horizontal"){
@@ -207,7 +214,7 @@ window.requestAnimFrame = (function(){
 				
 				const img = new Image();
 				img.onload = () => {
-					canvasContext.drawImage(img, x, y, width, height);
+					canvasContext.drawImage(img, 0, 0, this.canvasWidth, this.canvasHeight);
 					canvasContext.clearRect(this.x, this.y, this.length, this.length);
 
 					if(this.verticalOrHorizontal === "horizontal"){
@@ -237,7 +244,6 @@ window.requestAnimFrame = (function(){
 				
 				this.initMouseEvent(this.part, type);
 			}
-
 		},
 
 		checkStandardDeviation: function(dataList){
@@ -379,7 +385,6 @@ window.requestAnimFrame = (function(){
 							}			
 						}
 					}
-					
 				}
 			}
 		},

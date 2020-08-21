@@ -62,7 +62,8 @@ function exForDefaultSlide(){
 	const defaultImg = [];
 	setDefaultImgs(defaultImg);
 	ex1.setSrcs(defaultImg);
-	ex1.makeJigsaw(0, 0, 320, 200, 50, "src");
+	ex1.makeJigsaw(50, "src");
+	ex1.createBackground("src");
 }
 exForDefaultSlide();
 
@@ -71,7 +72,8 @@ function resetDefault(){
 	const block = document.querySelector('#jigsaw1');
 	canvas.height = canvas.height;
 	block.height = block.height;
-	ex1.makeJigsaw(0, 0, 320, 200, 50, "src");
+	ex1.makeJigsaw(50, "src");
+	ex1.createBackground("src");
 }
 
 // slide-type example with customize backgrounds
@@ -79,7 +81,7 @@ const uploadedImg = [];
 let ex2 = null;
 function exForCustomizeSlide(){
 	ex2 = new SlideStyleGenerator();
-	ex2.imgs = uploadedImg;
+	ex2.setImgs(uploadedImg);
 	const uploadEx = document.querySelector('#upload');
 	const canvas = ex2.createCanvas(320, 200, "canvas2", "background");
 	const block = ex2.createCanvas(320, 200, "jigsaw2", "jigsaw");
@@ -98,7 +100,8 @@ function uploadImages(){
 	const block = document.querySelector('#jigsaw2');
 	canvas.height = canvas.height;
 	block.height = block.height;
-	ex2.makeJigsaw(0, 0, 320, 200, 50, "file");
+	ex2.makeJigsaw(50, "file");
+	ex2.createBackground("file");
 }
 
 function resetUpload(){
@@ -111,7 +114,9 @@ function resetUpload(){
 		const block = document.querySelector('#jigsaw2');
 		canvas.height = canvas.height;
 		block.height = block.height;
-		ex2.makeJigsaw(0, 0, 320, 200, 50, "file");
+		ex2.setDirection("");
+		ex2.makeJigsaw(50, "file");
+		ex2.createBackground("file");
 	}
 }
 
