@@ -13,11 +13,11 @@ app.get('/', (req, res) => {
 	res.send('/index.html');
 })
 
-app.get('/api', (req, res) => {
+app.get('/api.html', (req, res) => {
 	res.send('/api.html');
 })
 
-app.get('/examples', (req, res) => {
+app.get('/examples.html', (req, res) => {
 	res.send('/examples.html')
 })
 
