@@ -92,7 +92,6 @@ function exForCustomizeSlide(){
 exForCustomizeSlide()
 
 function uploadImages(){
-	log("uploadImage");
 	const files = document.querySelector("input[type=file]").files;
 	Array.prototype.forEach.call(files, (file) => {
 		  uploadedImg.push(file);

@@ -30,6 +30,7 @@ body pre{
     font-weight: 400;
     padding-bottom: 20px;
     border-bottom: 1.5px solid grey;
+   	color: #003399;
 }
 
 .slide-title{
@@ -39,6 +40,7 @@ body pre{
 	font-size: 2em;
     font-weight: 400;
     width: 360px;
+    color: #003399;
 }
 
 .ex1-title{
@@ -47,6 +49,7 @@ body pre{
     text-align: center;
 	position: relative;
 	left: 41%;
+    color: #6666FF;
     width: 360px;
 }
 
@@ -172,6 +175,7 @@ a:active{
 	position: relative;
 	left: 41%;
 	width: 360px;
+	color: #6666FF;
 }
 
 .ex2-subtitle{
@@ -271,6 +275,7 @@ a:active{
 	position: relative;
 	left: 42%;
 	width: 360px;
+	color: #6666FF;
 }
 
 .text ul {
@@ -362,6 +367,7 @@ a:active{
 	position: relative;
 	left: 37%;
 	width: 520px;
+	color: #6666FF;
 }
 
 .text-aniamtion ul {
@@ -460,6 +466,7 @@ a:active{
 	position: relative;
 	left: 33.5%;
 	width: 600px;
+	color: #6666FF;
 }
 
 .options{

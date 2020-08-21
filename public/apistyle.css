@@ -11,13 +11,14 @@ body {
 .title-name{
 	font-size: 3em;
     font-weight: 400;
+    color: #003399;
 }
 
 .home-redirect{
 	float: left;
 	position: fixed;
 	font-weight: 400;
-	top: 150px;
+	top: 190px;
 	left: 10px;
 	z-index: 99999;
 }
@@ -27,7 +28,7 @@ body {
 	float: right;
 	right: 10px;
 	font-weight: 400;
-	top: 150px;
+	top: 190px;
 	z-index: 99999;
 }
 
@@ -72,6 +73,7 @@ a:active{
 .getting-started h2{
 	text-align: center;
 	font-weight: 500;
+	color: #6666FF;
 }
 
 .slide-api-title{
