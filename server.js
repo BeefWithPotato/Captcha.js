@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
-	res.send('/home.html');
+	res.send('/index.html');
 })
 
 app.get('/home.html', (req, res) => {

@@ -2,15 +2,20 @@ body {
 	background-color: #e6ecf0;
 }
 
-.menu{
-	position: relative;
-	left: 1%;
-	border-bottom: 1.5px solid grey;
+.home-redirect{
+	float: left;
+	position: fixed;
+	font-weight: 400;
+	top: 130px;
+	left: 10px;
 }
 
-.menu li{
-	text-align: center;
-	list-style-type: none;
+.api-redirect{
+	position: fixed;
+	float: right;
+	right: 10px;
+	font-weight: 400;
+	top: 130px;
 }
 
 body pre{
@@ -24,6 +29,8 @@ body pre{
 	left: 3%;
 	font-size: 3em;
     font-weight: 400;
+    padding-bottom: 20px;
+    border-bottom: 1.5px solid grey;
 }
 
 .slide-title{
@@ -107,6 +114,7 @@ a{
 
 a:hover {
 	text-decoration: underline;
+	color: #6666FF;
 }
 
 a:active{
@@ -558,6 +566,7 @@ a:active{
 }
 
 .footer{
+	left: 2%;
 	position: relative;
 	color: #444444;
 	text-align: center;
