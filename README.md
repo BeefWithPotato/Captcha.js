@@ -12,10 +12,10 @@ The following instruction will get you all set for using the library:
 ### Clone our project
 `git clone https://github.com/csc309-summer-2020/js-library-zhan4415.git`
 
-### Put following html into your html file `<head>` section
+### Put following script tag into your html file `<head>` section
 `<script defer type="text/javascript" src="js/verification_code_creator.js"></script>`
 
-Since the library is based on HTML Canvas,you can decide its style. You can also use the following method to create a canvas DOM element as a starting point:
+Since the library is based on HTML Canvas, you can decide its style. You can always use the following method to create a canvas DOM element as a starting point:
 `createCanvas()`
 
 Please refer to the detail method description in the following sections to learn how to use this method.

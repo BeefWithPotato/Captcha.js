@@ -580,20 +580,20 @@
 					<code class="javascript">
 	const textType = new TextEnterGenerator();
 	const textEx = document.querySelector('#text-button-customize');
-	const canvas5 = textType.createCanvas(360, 150, "canvas");
+	const canvas = textType.createCanvas(360, 150, "canvas");
 	const canvasAnimation = textType.createCanvas(360, 150, "canvasAnimation");
 	textEx.append(canvas);
 	textEx.append(canvasAnimation);
 	textEx("bold 42pt Aerial serif")
 	textType.setBlur(1);
 	textType.setAngle(10);
-	textType.createCode(canvas5, 4);
+	textType.createCode(canvas, 4);
 	textType.setLineWidth(1)
-	textType.drawRandomLines(canvas5, 20);
+	textType.drawRandomLines(canvas, 20);
 	textType.setDotSpeed(3)
 	textType.addDots(20);
 	//without animation
-	textType.drawRandomDots(canvas5);
+	textType.drawRandomDots(canvas);
 	//with animation
 	textType.drawRandomDotsWithAnimation(canvasAnimation);
 					</code>
